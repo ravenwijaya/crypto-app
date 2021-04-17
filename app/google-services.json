@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "566450696421",
+    "firebase_url": "https://cryptoapptr-default-rtdb.firebaseio.com",
+    "project_id": "cryptoapptr",
+    "storage_bucket": "cryptoapptr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566450696421:android:1edffcb3e7241977d4640c",
+        "android_client_info": {
+          "package_name": "com.raven.trcrypto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566450696421-5aihlng53id0al5jr7ilsllfb48m43rl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDKEDIu62hXCdLUmGdre3BSAbSpPZffNc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566450696421-5aihlng53id0al5jr7ilsllfb48m43rl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

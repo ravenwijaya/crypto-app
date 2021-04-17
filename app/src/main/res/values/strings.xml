@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Cryptx</string>
+    <string name="action_signup">SignUp</string>
+    <string name="action_signin">SignIn</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+</resources>
