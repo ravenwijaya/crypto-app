@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -47,7 +49,12 @@ public class MainActivity extends AppCompatActivity {
   OkHttpClient client;
   Request request;
   SwipeRefreshLayout swipeRefreshLayout;
+  SharedPreferences sharedPreferences;
 
+
+    private static final String SHARED_PREF_NAME="mypref";
+    // private static final String KEY_NAME="name";
+    private static final String KEY_EMAIL="email";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        sharedPreferences=getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
         swipeRefreshLayout=(SwipeRefreshLayout) findViewById(R.id.swipe_to_refresh);
         swipeRefreshLayout.post(new Runnable() {
             @Override
@@ -87,6 +95,13 @@ public class MainActivity extends AppCompatActivity {
         int id=item.getItemId();
         if(id==R.id.account){
             Toast.makeText(getApplicationContext(),"You Click Account",Toast.LENGTH_SHORT).show();
+        }else if(id==R.id.logout){
+            SharedPreferences.Editor editor=sharedPreferences.edit();
+            editor.clear();
+            editor.commit();
+            Toast.makeText(MainActivity.this,"Log out successfull",Toast.LENGTH_SHORT).show();
+            finish();
+            startActivity(new Intent(MainActivity.this , SigninActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

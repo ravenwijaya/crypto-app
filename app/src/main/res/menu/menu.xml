@@ -4,7 +4,13 @@
     <item
         android:title="Accounts"
         android:id="@+id/account"
-        android:icon="@drawable/ic_baseline_account_circle_24"
-        app:showAsAction="always"/>
+        android:icon="@drawable/ic_baseline_account_circle_24"/>
+
+<!--        app:showAsAction="always"-->
+    <item
+        android:title="Logout"
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_baseline_account_circle_24"/>
+
 
 </menu>

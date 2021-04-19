@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -22,6 +23,10 @@ public class SigninActivity extends AppCompatActivity {
     private TextView mTextView;
     private Button signInBtn;
     private FirebaseAuth mAuth;
+    SharedPreferences sharedPreferences;
+    private static final String SHARED_PREF_NAME="mypref";
+   // private static final String KEY_NAME="name";
+    private static final String KEY_EMAIL="email";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +35,14 @@ public class SigninActivity extends AppCompatActivity {
         mPass = findViewById(R.id.passwordsignin);
         signInBtn = findViewById(R.id.btn_signin);
         mTextView = findViewById(R.id.textviewsignin);
+        sharedPreferences=getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
+        String email=sharedPreferences.getString(KEY_EMAIL,null);
+        if(email!=null){
+            startActivity(new Intent(SigninActivity.this , MainActivity.class));
+        }
+
+
+
 
         mAuth = FirebaseAuth.getInstance();
         mTextView.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +54,9 @@ public class SigninActivity extends AppCompatActivity {
         signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences.Editor editor=sharedPreferences.edit();
+                editor.putString(KEY_EMAIL,mEmail.getText().toString());
+                editor.apply();
                 loginUser();
             }
         });
@@ -56,7 +72,9 @@ public class SigninActivity extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
+
                                 Toast.makeText(SigninActivity.this, "Login Successfully !!", Toast.LENGTH_SHORT).show();
+
                                 startActivity(new Intent(SigninActivity.this , MainActivity.class));
                                 finish();
                             }
