@@ -65,7 +65,7 @@ public class SignupActivity extends AppCompatActivity{
         String email = mEmail.getText().toString().trim();
         String pass = mPass.getText().toString().trim();
         String name= mName.getText().toString().trim();
-        String balance="0";
+        String balance="0.00";
 
         if(email.isEmpty()){
             mEmail.setError("Email is Required");

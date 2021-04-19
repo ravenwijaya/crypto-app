@@ -15,6 +15,9 @@ class User {
         this.password = password;
         this.balance = balance;
     }
+    public User() {
+
+    }
 
     public String getFullname() {
         return fullname;

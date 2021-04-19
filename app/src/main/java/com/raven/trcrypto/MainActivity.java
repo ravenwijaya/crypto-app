@@ -1,5 +1,6 @@
 package com.raven.trcrypto;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,10 +16,15 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 
 
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.raven.trcrypto.Adapter.CoinAdapter;
@@ -70,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 loadFirst10coin(0);
-              //  loadBalance();
+                loadBalance();
             }
         });
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -78,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             public void onRefresh() {
                 items.clear();
                 loadFirst10coin(0);
-                //loadBalance();
+                loadBalance();
                 setupAdapter();
             }
         });
@@ -188,34 +194,34 @@ public class MainActivity extends AppCompatActivity {
             swipeRefreshLayout.setRefreshing(false);
 
     }
-//    private void loadBalance(){
-//        user= FirebaseAuth.getInstance().getCurrentUser();
-//        reference=FirebaseDatabase.getInstance().getReference("Users");
-//        userID=user.getUid();
-//        swipeRefreshLayout.setRefreshing(true);
-//        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                User userProfile=snapshot.getValue(User.class);
-//                if(userProfile!=null){
-//                    String balance=userProfile.getBalance();
-//                    Log.d("fakk", balance);
-//                    digit.setText(balance);
-//
-//
-//
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Toast.makeText(MainActivity.this, "ERROR  !!", Toast.LENGTH_SHORT).show();
-//
-//
-//            }
-//        });
-//        if(swipeRefreshLayout.isRefreshing())
-//            swipeRefreshLayout.setRefreshing(false);
-//    }
+    private void loadBalance(){
+        user= FirebaseAuth.getInstance().getCurrentUser();
+        reference= FirebaseDatabase.getInstance().getReference("Users");
+        userID=user.getUid();
+        Log.d("fuck", user.getUid());
+        swipeRefreshLayout.setRefreshing(true);
+        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User userProfile=snapshot.getValue(User.class);
+                if(userProfile!=null){
+                    String balance=userProfile.getBalance();
+                    digit.setText(balance);
+
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(MainActivity.this, "ERROR  !!", Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
+        if(swipeRefreshLayout.isRefreshing())
+            swipeRefreshLayout.setRefreshing(false);
+    }
 
 }
