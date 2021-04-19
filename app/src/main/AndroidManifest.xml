@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TRCRYPTO">
 
-        <activity android:name=".SigninActivity">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,7 +18,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".SigninActivity"></activity>
         <activity android:name=".MainActivity"></activity>
-    </application>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
 </manifest>
