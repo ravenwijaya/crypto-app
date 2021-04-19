@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fece2f"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:src="@drawable/ic_baseline_texture_24"
+        android:transitionName="logo_image"/>
+
+    <TextView
+        android:id="@+id/nameapp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif-black"
+        android:text="Crypto App"
+        android:transitionName="logo_nameapp"
+        android:textSize="70sp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+</LinearLayout>
