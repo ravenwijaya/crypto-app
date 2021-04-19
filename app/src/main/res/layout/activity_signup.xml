@@ -16,6 +16,14 @@
         android:autofillHints="@string/email"
         android:inputType="textEmailAddress"
         android:maxLines="1" />
+    <EditText
+        android:id="@+id/fullname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/fullname"
+        android:autofillHints="@string/fullname"
+        android:inputType="text"
+        android:maxLines="1" />
 
     <EditText
         android:id="@+id/password"
@@ -41,4 +49,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Already Registered? Sign in"/>
+
 </LinearLayout>

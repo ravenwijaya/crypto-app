@@ -1,8 +1,6 @@
 package com.raven.trcrypto;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,22 +12,18 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.raven.trcrypto.Adapter.CoinAdapter;
 import com.raven.trcrypto.Interface.ILoadMore;
 import com.raven.trcrypto.Model.CoinModel;
-import com.squareup.picasso.OkHttpDownloader;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,11 +39,14 @@ public class MainActivity extends AppCompatActivity {
   List<CoinModel>items=new ArrayList<>();
   CoinAdapter adapter;
   RecyclerView recyclerView;
-
   OkHttpClient client;
   Request request;
   SwipeRefreshLayout swipeRefreshLayout;
   SharedPreferences sharedPreferences;
+  private FirebaseUser user;
+  private DatabaseReference reference;
+  private String userID;
+  private TextView digit;
 
 
     private static final String SHARED_PREF_NAME="mypref";
@@ -60,6 +57,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //
+        digit = findViewById(R.id.digit);
+
+        ///
+
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         sharedPreferences=getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 loadFirst10coin(0);
+              //  loadBalance();
             }
         });
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -75,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             public void onRefresh() {
                 items.clear();
                 loadFirst10coin(0);
+                //loadBalance();
                 setupAdapter();
             }
         });
@@ -184,5 +188,34 @@ public class MainActivity extends AppCompatActivity {
             swipeRefreshLayout.setRefreshing(false);
 
     }
+//    private void loadBalance(){
+//        user= FirebaseAuth.getInstance().getCurrentUser();
+//        reference=FirebaseDatabase.getInstance().getReference("Users");
+//        userID=user.getUid();
+//        swipeRefreshLayout.setRefreshing(true);
+//        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                User userProfile=snapshot.getValue(User.class);
+//                if(userProfile!=null){
+//                    String balance=userProfile.getBalance();
+//                    Log.d("fakk", balance);
+//                    digit.setText(balance);
+//
+//
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                Toast.makeText(MainActivity.this, "ERROR  !!", Toast.LENGTH_SHORT).show();
+//
+//
+//            }
+//        });
+//        if(swipeRefreshLayout.isRefreshing())
+//            swipeRefreshLayout.setRefreshing(false);
+//    }
 
 }

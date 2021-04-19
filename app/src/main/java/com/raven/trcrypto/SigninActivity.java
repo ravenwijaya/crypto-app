@@ -65,9 +65,21 @@ public class SigninActivity extends AppCompatActivity {
     private void loginUser(){
         String email = mEmail.getText().toString();
         String pass = mPass.getText().toString();
-
-        if (!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            if (!pass.isEmpty()){
+        if(email.isEmpty()){
+            mEmail.setError("Email is Required");
+            mEmail.requestFocus();
+            return;
+        }
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            mEmail.setError("Please enter a valid email!");
+            mEmail.requestFocus();
+            return;
+        }
+        if(pass.isEmpty()){
+            mPass.setError("Pass is Required");
+            mPass.requestFocus();
+            return;
+        }
                 mAuth.signInWithEmailAndPassword(email , pass)
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
@@ -84,14 +96,7 @@ public class SigninActivity extends AppCompatActivity {
                         Toast.makeText(SigninActivity.this, "Login Failed !!", Toast.LENGTH_SHORT).show();
                     }
                 });
-            }else{
-                mPass.setError("Empty Fields Are not Allowed");
-            }
-        }else if(email.isEmpty()){
-            mEmail.setError("Empty Fields Are not Allowed");
-        }else{
-            mEmail.setError("Pleas Enter Correct Email");
-        }
-    }
 
-}
+
+
+}}
