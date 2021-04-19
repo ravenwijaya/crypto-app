@@ -12,7 +12,11 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/black</item>
+
         <!-- Customize your theme here. -->
 
+    </style>
+    <style name="ToolbarThemeOverlay" parent="@style/Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="fontFamily">@font/font2</item>
     </style>
 </resources>

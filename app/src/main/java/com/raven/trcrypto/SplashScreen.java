@@ -2,6 +2,7 @@ package com.raven.trcrypto;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Pair;
@@ -39,26 +40,16 @@ public class SplashScreen extends AppCompatActivity {
         //animasi
         logo = findViewById(R.id.logo);
         nameapp = findViewById(R.id.nameapp);
-
         logo.setAnimation(topAnim);
         nameapp.setAnimation(bottomAnim);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreen.this, SignupActivity.class);
+                Intent intent = new Intent(SplashScreen.this, SigninActivity.class);
+                    startActivity(intent);
+                    finish();
 
-
-                Pair[] pairs = new Pair[2];
-                pairs[0] = new Pair<View, String>(logo, "logo_image");
-                pairs[1] = new Pair<View, String>(nameapp, "logo_nameapp");
-
-
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                    ActivityOptions options= ActivityOptions.makeSceneTransitionAnimation(SplashScreen.this, pairs);
-                    startActivity(intent, options.toBundle());
-                    /*finish();*/
-                }
             }
         }, SPLASH_SCREEN);
     }

@@ -3,26 +3,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fece2f"
-    android:orientation="vertical">
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:layout_centerInParent="true">
 
     <ImageView
+        android:layout_marginTop="100dp"
+
         android:id="@+id/logo"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="300dp"
         android:src="@drawable/ic_baseline_texture_24"
-        android:transitionName="logo_image"/>
+        android:transitionName="logo_image"
+        android:layout_gravity="center"
+        />
 
     <TextView
         android:id="@+id/nameapp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:fontFamily="sans-serif-black"
-        android:text="Crypto App"
+        android:layout_height="match_parent"
+        android:text="CryptX"
         android:transitionName="logo_nameapp"
-        android:textSize="70sp"
-        android:textAlignment="center"
-        android:gravity="center_horizontal" />
+        android:textSize="50sp"
+
+        android:gravity="bottom|center"
+        android:layout_marginBottom="100dp"
+        android:fontFamily="@font/font2"
+      />
 
 </LinearLayout>

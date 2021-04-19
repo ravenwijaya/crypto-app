@@ -10,7 +10,7 @@
     android:layout_height="wrap_content"
     android:id="@+id/toolbar"
     android:background="@color/white"
-    android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+    android:theme="@style/ToolbarThemeOverlay"
     app:title="CryptX"
     app:titleMarginStart="20dp"
     app:logo="@drawable/ic_baseline_texture_24"
