@@ -5,8 +5,10 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,6 +25,16 @@ public class CoinAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     Activity activity;
     List<CoinModel> items;
     int visibleThreshold = 5, lastVisibleItem, totalItemCount;
+    //   private AdapterView.OnItemClickListener mListener;
+    private OnItemClickListener mListener;
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
+    }
+//
+
 
     public CoinAdapter(RecyclerView recyclerView, Activity activity, List<CoinModel> items) {
         this.activity = activity;
@@ -51,7 +63,8 @@ public class CoinAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(activity).inflate(R.layout.coin_layout, parent, false);
-        return new CoinViewHolder(view);
+        CoinViewHolder evh=new CoinViewHolder(view,mListener);
+        return evh;
     }
 
     @Override
@@ -72,6 +85,10 @@ public class CoinAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 Color.parseColor("#FF0000") : Color.parseColor("#32CD32"));
         holderItem.seven_days_change.setTextColor(item.getPrice_change_percentage_7d_in_currency().contains("-") ?
                 Color.parseColor("#FF0000") : Color.parseColor("#32CD32"));
+//        holder.itemView.setOnClickListener(mListener(item));
+
+
+
 
     }
 
@@ -101,4 +118,5 @@ public class CoinAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
 
     }
+
 }

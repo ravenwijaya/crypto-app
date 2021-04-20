@@ -1,5 +1,6 @@
 package com.raven.trcrypto;
 
+import androidx.annotation.LongDef;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -42,18 +43,19 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
-  List<CoinModel>items=new ArrayList<>();
-  CoinAdapter adapter;
-  RecyclerView recyclerView;
-  OkHttpClient client;
-  Request request;
-  SwipeRefreshLayout swipeRefreshLayout;
-  SharedPreferences sharedPreferences;
-  private FirebaseUser user;
-  private DatabaseReference reference;
-  private String userID;
+    List<CoinModel>items=new ArrayList<>();
+    CoinAdapter adapter;
+    RecyclerView recyclerView;
+    OkHttpClient client;
+    Request request;
+    SwipeRefreshLayout swipeRefreshLayout;
+    SharedPreferences sharedPreferences;
+    private FirebaseUser user;
+    private DatabaseReference reference;
+    private String userID;
+    private RecyclerView.RecyclerListener listener;
 
-  private TextView digit;
+    private TextView digit;
 
 
     private static final String SHARED_PREF_NAME="mypref";
@@ -132,6 +134,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        adapter.setOnItemClickListener(new CoinAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                //Log.d("HUHH", "onItemClick: "+position);
+                String symbol=   items.get(position).symbol;
+                Log.d("HUHH", "onItemClick: "+symbol);
+            }
+        });
     }
     private void loadNext10Coin(int index){
         client=new OkHttpClient();
@@ -199,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
         user= FirebaseAuth.getInstance().getCurrentUser();
         reference= FirebaseDatabase.getInstance().getReference("Users");
         userID=user.getUid();
-      //  String walletid=reference.child(userID).child("walletid").toString();
+        //  String walletid=reference.child(userID).child("walletid").toString();
 
         swipeRefreshLayout.setRefreshing(true);
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -208,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
                 User userProfile=snapshot.getValue(User.class);
                 if(userProfile!=null){
                     String walletid=userProfile.getWalletid();
-                   // digit.setText(balance);
+                    // digit.setText(balance);
                     user= FirebaseAuth.getInstance().getCurrentUser();
                     reference= FirebaseDatabase.getInstance().getReference("Wallets");
                     reference.child(walletid).addListenerForSingleValueEvent(new ValueEventListener() {
