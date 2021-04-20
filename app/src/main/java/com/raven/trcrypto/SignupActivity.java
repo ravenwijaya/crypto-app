@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -31,6 +32,11 @@ public class SignupActivity extends AppCompatActivity{
     private TextView mTextView;
     private Button signUpBtn;
     private FirebaseAuth mAuth;
+
+    private String walletID;
+    private FirebaseUser user;
+    private DatabaseReference reference;
+    private String userID;
   //  private DatabaseReference mFirebaseDatabase;
    // private String userId;
     @Override
@@ -57,15 +63,20 @@ public class SignupActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 createUser();
+
+
             }
         });
 
     }
     private void createUser(){
+
         String email = mEmail.getText().toString().trim();
         String pass = mPass.getText().toString().trim();
         String name= mName.getText().toString().trim();
-        String balance="0.00";
+        String walletid="";
+
+
 
         if(email.isEmpty()){
             mEmail.setError("Email is Required");
@@ -84,16 +95,22 @@ public class SignupActivity extends AppCompatActivity{
         }
         mAuth.createUserWithEmailAndPassword(email,pass)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            User user=new User(name,email,pass,balance);
+
+
+                            User user=new User(name,email,pass,walletid);
+
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
+                                    //createWallet( FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()));
                                     if(task.isSuccessful()){
+                                        createWallet();
                                         Toast.makeText(SignupActivity.this,"Success",Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(SignupActivity.this , SigninActivity.class));
 
@@ -107,6 +124,28 @@ public class SignupActivity extends AppCompatActivity{
                         }
                     }
                 });
+    }
+    private void createWallet(){
+       // user= FirebaseAuth.getInstance().getCurrentUser();
+        reference= FirebaseDatabase.getInstance().getReference("Wallets");
+
+       // Log.d("fuck2", user.getUid());
+        walletID = reference.push().getKey();
+        Wallet wallet = new Wallet("0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00" );
+        reference.child(walletID).setValue(wallet);
+        fillwalletid(walletID);
+
+
+      //  createUser(walletID);
+
+
+    }
+    private void fillwalletid(String walletID){
+        user= FirebaseAuth.getInstance().getCurrentUser();
+        reference= FirebaseDatabase.getInstance().getReference("Users");
+        userID=user.getUid();
+       // Log.d("fuck1", user.getUid());
+        reference.child(userID).child("walletid").setValue(walletID);
     }
 //////
 

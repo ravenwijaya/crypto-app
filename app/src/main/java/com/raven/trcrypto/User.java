@@ -7,16 +7,16 @@ class User {
     private String fullname;
     private String email;
     private String password;
-    private String balance;
+    private String walletid;
 
-    public User(String fullname, String email, String password, String balance) {
+    public User() {
+
+    }
+    public User(String fullname, String email, String password, String walletid) {
         this.fullname = fullname;
         this.email = email;
         this.password = password;
-        this.balance = balance;
-    }
-    public User() {
-
+        this.walletid = walletid;
     }
 
     public String getFullname() {
@@ -43,11 +43,11 @@ class User {
         this.password = password;
     }
 
-    public String getBalance() {
-        return balance;
+    public String getWalletid() {
+        return walletid;
     }
 
-    public void setBalance(String balance) {
-        this.balance = balance;
+    public void setWalletid(String walletid) {
+        this.walletid = walletid;
     }
 }

@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
   private FirebaseUser user;
   private DatabaseReference reference;
   private String userID;
+
   private TextView digit;
 
 
@@ -198,15 +199,36 @@ public class MainActivity extends AppCompatActivity {
         user= FirebaseAuth.getInstance().getCurrentUser();
         reference= FirebaseDatabase.getInstance().getReference("Users");
         userID=user.getUid();
-        Log.d("fuck", user.getUid());
+      //  String walletid=reference.child(userID).child("walletid").toString();
+
         swipeRefreshLayout.setRefreshing(true);
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User userProfile=snapshot.getValue(User.class);
                 if(userProfile!=null){
-                    String balance=userProfile.getBalance();
-                    digit.setText(balance);
+                    String walletid=userProfile.getWalletid();
+                   // digit.setText(balance);
+                    user= FirebaseAuth.getInstance().getCurrentUser();
+                    reference= FirebaseDatabase.getInstance().getReference("Wallets");
+                    reference.child(walletid).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            Wallet wallet=snapshot.getValue(Wallet.class);
+                            if(wallet!=null){
+                                String rp=wallet.getRp();
+                                digit.setText(rp);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            Toast.makeText(MainActivity.this, "ERROR  !!", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+                    if(swipeRefreshLayout.isRefreshing())
+                        swipeRefreshLayout.setRefreshing(false);
 
 
 
@@ -223,5 +245,6 @@ public class MainActivity extends AppCompatActivity {
         if(swipeRefreshLayout.isRefreshing())
             swipeRefreshLayout.setRefreshing(false);
     }
+
 
 }
