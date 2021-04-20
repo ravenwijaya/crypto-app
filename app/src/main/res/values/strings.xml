@@ -7,4 +7,6 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="fullname">Fullname</string>
+    <string name="deskripsi_signup">Sign up to continue</string>
+    <string name="name_signup">Enter your name</string>
 </resources>
