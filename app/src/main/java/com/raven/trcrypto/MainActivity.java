@@ -138,10 +138,11 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnItemClickListener(new CoinAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                //Log.d("HUHH", "onItemClick: "+position);
-                String symbol=   items.get(position).symbol;
-                Log.d("HUHH", "onItemClick: "+symbol);
-                startActivity(new Intent(MainActivity.this , OrderActivity.class));
+                String symbol=   items.get(position).getName().toLowerCase();
+                //  Log.d("HUHH", "onItemClick: "+symbol);
+                Intent intent=new Intent(MainActivity.this,OrderActivity.class);
+                intent.putExtra("Symbol",symbol);
+                startActivity(intent);
             }
         });
     }

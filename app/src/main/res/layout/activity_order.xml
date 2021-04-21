@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="405dp">
         <LinearLayout
-            android:background="@drawable/bg1"
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="350dp"
             android:orientation="vertical">
@@ -43,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bitcoin price"
-                android:textColor="#fff"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="21sp"/>
             <LinearLayout
@@ -54,7 +54,7 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="35dp"
-                    app:srcCompat="@drawable/ic_outline_attach_money_24"
+                    app:srcCompat="@drawable/ic_baseline_attach_money_24"
                     tools:ignore="VectorDrawableCompat" />
 
 
@@ -62,7 +62,7 @@
                     android:id="@+id/currentprice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:text="0.00"
                     android:textSize="25dp"
                     android:layout_gravity="center_horizontal"
@@ -95,7 +95,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/oneHour"
-                        android:text="12"
+                        android:text="-"
                         android:textStyle="bold"
                         android:textSize="20sp"
                         android:paddingTop="10dp"
@@ -118,7 +118,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/twentyfourHour"
-                        android:text="12"
+                        android:text="-"
                         android:textStyle="bold"
                         android:textSize="20sp"
                         android:paddingTop="10dp"
@@ -141,7 +141,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/sevenDay"
-                        android:text="12"
+                        android:text="-"
                         android:textStyle="bold"
                         android:textSize="20sp"
                         android:paddingTop="10dp"
@@ -170,33 +170,8 @@
         android:layout_gravity="center"
         />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Price"
-        android:textSize="20dp"
-        android:layout_gravity="center"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal">
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="35dp"
-            app:srcCompat="@drawable/ic_baseline_attach_money_24"
-            tools:ignore="VectorDrawableCompat" />
 
 
-        <TextView
-            android:id="@+id/priceorder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0.00"
-            android:textSize="25dp"
-            android:layout_gravity="center_horizontal"
-            android:textStyle="bold"/>
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
