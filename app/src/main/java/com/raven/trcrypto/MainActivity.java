@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         sharedPreferences=getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
         swipeRefreshLayout=(SwipeRefreshLayout) findViewById(R.id.swipe_to_refresh);
         swipeRefreshLayout.post(new Runnable() {
@@ -140,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
                 //Log.d("HUHH", "onItemClick: "+position);
                 String symbol=   items.get(position).symbol;
                 Log.d("HUHH", "onItemClick: "+symbol);
+                startActivity(new Intent(MainActivity.this , OrderActivity.class));
             }
         });
     }
