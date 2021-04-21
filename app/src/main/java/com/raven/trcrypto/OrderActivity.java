@@ -126,64 +126,131 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                     reference.child(walletid).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            Wallet wallet=snapshot.getValue(Wallet.class);
-                            if(wallet!=null){
-
-                                if(typeorder.equals("Buy")){
+                            Wallet wallet = snapshot.getValue(Wallet.class);
+                            if (wallet != null) {
+                                if (typeorder.equals("Buy")) {
                                     //Log.d("zz", "order: "+wallet.getRp());
-                                    if (Double.valueOf(wallet.getRp())>=100 && Double.valueOf(wallet.getRp()) >= Double.valueOf(amounts)){
-                                        if(symbol.equals("bitcoin")){
-                                            String total=String.valueOf(  Double.valueOf(wallet.getBtc())+(Double.valueOf(amounts)/Double.valueOf(pricenow))  );
-                                            String rpnow=String.valueOf(Double.valueOf(wallet.getRp())-Double.valueOf(amounts));
+                                    if (Double.valueOf(wallet.getRp()) >= 100 && Double.valueOf(wallet.getRp()) >= Double.valueOf(amounts)) {
+                                        if (symbol.equals("bitcoin")) {
+                                            String total = String.valueOf(Double.valueOf(wallet.getBtc()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
+                                            String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
                                             reference.child(walletid).child("rp").setValue(rpnow);
                                             reference.child(walletid).child("btc").setValue(total);
-                                        }else if(symbol.equals("dogecoin")){
-                                            String total=String.valueOf(  Double.valueOf(wallet.getDoge())+(Double.valueOf(amounts)/Double.valueOf(pricenow)) );
-                                            String rpnow=String.valueOf(Double.valueOf(wallet.getRp())-Double.valueOf(amounts));
+                                        } else if (symbol.equals("dogecoin")) {
+                                            String total = String.valueOf(Double.valueOf(wallet.getDoge()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
+                                            String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
                                             reference.child(walletid).child("rp").setValue(rpnow);
                                             reference.child(walletid).child("doge").setValue(total);
-                                        }else if(symbol.equals("cardano")){
-                                            String total=String.valueOf( Double.valueOf(wallet.getAda())+(Double.valueOf(amounts)/Double.valueOf(pricenow)) );
-                                            String rpnow=String.valueOf(Double.valueOf(wallet.getRp())-Double.valueOf(amounts));
+                                        } else if (symbol.equals("cardano")) {
+                                            String total = String.valueOf(Double.valueOf(wallet.getAda()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
+                                            String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
                                             reference.child(walletid).child("rp").setValue(rpnow);
                                             reference.child(walletid).child("ada").setValue(total);
-                                        }else if(symbol.equals("uniswap")){
-                                            String total=String.valueOf( Double.valueOf(wallet.getUni())+(Double.valueOf(amounts)/Double.valueOf(pricenow)) );
-                                            String rpnow=String.valueOf(Double.valueOf(wallet.getRp())-Double.valueOf(amounts));
+                                        } else if (symbol.equals("uniswap")) {
+                                            String total = String.valueOf(Double.valueOf(wallet.getUni()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
+                                            String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
                                             reference.child(walletid).child("rp").setValue(rpnow);
                                             reference.child(walletid).child("uni").setValue(total);
-                                        }else if(symbol.equals("chainlink")){
-                                            String total=String.valueOf(Double.valueOf(wallet.getLink())+(Double.valueOf(amounts)/Double.valueOf(pricenow)) );
-                                            String rpnow=String.valueOf(Double.valueOf(wallet.getRp())-Double.valueOf(amounts));
+                                        } else if (symbol.equals("chainlink")) {
+                                            String total = String.valueOf(Double.valueOf(wallet.getLink()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
+                                            String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
                                             reference.child(walletid).child("rp").setValue(rpnow);
                                             reference.child(walletid).child("link").setValue(total);
-                                        }else if(symbol.equals("aave")){
-                                            String total=String.valueOf(Double.valueOf(wallet.getAave())+(Double.valueOf(amounts)/Double.valueOf(pricenow)) );
-                                            String rpnow=String.valueOf(Double.valueOf(wallet.getRp())-Double.valueOf(amounts));
+                                        } else if (symbol.equals("aave")) {
+                                            String total = String.valueOf(Double.valueOf(wallet.getAave()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
+                                            String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
                                             reference.child(walletid).child("rp").setValue(rpnow);
                                             reference.child(walletid).child("aave").setValue(total);
-                                        }else if(symbol.equals("thorchain")){
-                                            String total=String.valueOf(Double.valueOf(wallet.getRune())+(Double.valueOf(amounts)/Double.valueOf(pricenow)) );
-                                            String rpnow=String.valueOf(Double.valueOf(wallet.getRp())-Double.valueOf(amounts));
+                                        } else if (symbol.equals("thorchain")) {
+                                            String total = String.valueOf(Double.valueOf(wallet.getRune()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
+                                            String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
                                             reference.child(walletid).child("rp").setValue(rpnow);
                                             reference.child(walletid).child("rune").setValue(total);
-                                        }else if(symbol.equals("sushi")){
-                                            String total=String.valueOf(Double.valueOf(wallet.getSushi())+(Double.valueOf(amounts)/Double.valueOf(pricenow)) );
-                                            String rpnow=String.valueOf(Double.valueOf(wallet.getRp())-Double.valueOf(amounts));
+                                        } else if (symbol.equals("sushi")) {
+                                            String total = String.valueOf(Double.valueOf(wallet.getSushi()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
+                                            String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
                                             reference.child(walletid).child("rp").setValue(rpnow);
                                             reference.child(walletid).child("sushi").setValue(total);
+                                        } else if (symbol.equals("polkadot")) {
+                                            String total = String.valueOf(Double.valueOf(wallet.getDot()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
+                                            String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
+                                            reference.child(walletid).child("rp").setValue(rpnow);
+                                            reference.child(walletid).child("dot").setValue(total);
                                         }
-                                    }
-                                    else {
+                                    } else {
                                         Toast.makeText(OrderActivity.this, "The minimum buying amount is worth of $100", Toast.LENGTH_SHORT).show();
                                     }
                                 }
-
-
-                            }
-                        }
-
-                        @Override
+                                else if (typeorder.equals("Sell")) {
+                                    if (symbol.equals("bitcoin")) {
+                                        if (Double.valueOf(amounts)<=Double.valueOf(wallet.getBtc())  ) {
+                                            String total = String.valueOf(Double.valueOf(wallet.getBtc()) - Double.valueOf(amounts));
+                                            String rp=String.valueOf(Double.valueOf(wallet.getRp())+(Double.valueOf(amounts)*Double.valueOf(pricenow)));
+                                            reference.child(walletid).child("rp").setValue(rp);
+                                            reference.child(walletid).child("btc").setValue(total);
+                                        }
+                                    } else if (symbol.equals("dogecoin")) {
+                                        if (Double.valueOf(amounts)<=Double.valueOf(wallet.getDoge())) {
+                                            String total = String.valueOf(Double.valueOf(wallet.getDoge()) - Double.valueOf(amounts));
+                                            String rp=String.valueOf(Double.valueOf(wallet.getRp())+(Double.valueOf(amounts)*Double.valueOf(pricenow)));
+                                            reference.child(walletid).child("rp").setValue(rp);
+                                            reference.child(walletid).child("doge").setValue(total);
+                                        }
+                                    } else if (symbol.equals("cardano")) {
+                                        if (Double.valueOf(amounts)<=Double.valueOf(wallet.getAda())  ) {
+                                            String total = String.valueOf(Double.valueOf(wallet.getAda()) - Double.valueOf(amounts));
+                                            String rp=String.valueOf(Double.valueOf(wallet.getRp())+(Double.valueOf(amounts)*Double.valueOf(pricenow)));
+                                            reference.child(walletid).child("rp").setValue(rp);
+                                            reference.child(walletid).child("ada").setValue(total);
+                                        }
+                                    } else if (symbol.equals("uniswap")) {
+                                        if ( Double.valueOf(amounts)<=Double.valueOf(wallet.getUni()) ) {
+                                            String total = String.valueOf(Double.valueOf(wallet.getUni()) - Double.valueOf(amounts));
+                                            String rp=String.valueOf(Double.valueOf(wallet.getRp())+(Double.valueOf(amounts)*Double.valueOf(pricenow)));
+                                            reference.child(walletid).child("rp").setValue(rp);
+                                            reference.child(walletid).child("uni").setValue(total);
+                                        }
+                                    } else if (symbol.equals("chainlink")) {
+                                        if (Double.valueOf(amounts)<=Double.valueOf(wallet.getLink())) {
+                                            String total = String.valueOf(Double.valueOf(wallet.getLink()) - Double.valueOf(amounts));
+                                            String rp=String.valueOf(Double.valueOf(wallet.getRp())+(Double.valueOf(amounts)*Double.valueOf(pricenow)));
+                                            reference.child(walletid).child("rp").setValue(rp);
+                                            reference.child(walletid).child("link").setValue(total);
+                                        }
+                                    } else if (symbol.equals("aave")) {
+                                        if ( Double.valueOf(amounts)<=Double.valueOf(wallet.getAave()) ) {
+                                            String total = String.valueOf(Double.valueOf(wallet.getAave()) - Double.valueOf(amounts));
+                                            String rp=String.valueOf(Double.valueOf(wallet.getRp())+(Double.valueOf(amounts)*Double.valueOf(pricenow)));
+                                            reference.child(walletid).child("rp").setValue(rp);
+                                            reference.child(walletid).child("aave").setValue(total);
+                                        }
+                                    } else if (symbol.equals("thorchain")) {
+                                        if (Double.valueOf(amounts)<=Double.valueOf(wallet.getRune()) ) {
+                                            String total = String.valueOf(Double.valueOf(wallet.getRune()) - Double.valueOf(amounts));
+                                            String rp=String.valueOf(Double.valueOf(wallet.getRp())+(Double.valueOf(amounts)*Double.valueOf(pricenow)));
+                                            reference.child(walletid).child("rp").setValue(rp);
+                                            reference.child(walletid).child("rune").setValue(total);
+                                        }
+                                    } else if (symbol.equals("sushi")) {
+                                        if ( Double.valueOf(amounts)<=Double.valueOf(wallet.getSushi())) {
+                                            String total = String.valueOf(Double.valueOf(wallet.getSushi()) - Double.valueOf(amounts));
+                                            String rp=String.valueOf(Double.valueOf(wallet.getRp())+(Double.valueOf(amounts)*Double.valueOf(pricenow)));
+                                            reference.child(walletid).child("rp").setValue(rp);
+                                            reference.child(walletid).child("sushi").setValue(total);
+                                        }
+                                    } else if (symbol.equals("polkadot")) {
+                                        if (Double.valueOf(amounts)<=Double.valueOf(wallet.getDot())) {
+                                            String total = String.valueOf(Double.valueOf(wallet.getDot()) - Double.valueOf(amounts));
+                                            String rp=String.valueOf(Double.valueOf(wallet.getRp())+(Double.valueOf(amounts)*Double.valueOf(pricenow)));
+                                            reference.child(walletid).child("rp").setValue(rp);
+                                            reference.child(walletid).child("dot").setValue(total);
+                                        }
+                                    }
+                                }
+                                else {
+                                    Toast.makeText(OrderActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                                }
+                            }}@Override
                         public void onCancelled(@NonNull DatabaseError error) {
                             Toast.makeText(OrderActivity.this, "ERROR  !!", Toast.LENGTH_SHORT).show();
                         }
