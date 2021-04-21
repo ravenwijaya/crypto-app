@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        tools:context=".MapsActivity" />
+    <LinearLayout
+        android:id="@+id/detail"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/lokasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="YOUR CURRENT LOCATION"
+                    android:textSize="18sp"
+                    android:textColor="#656565"
+                    android:fontFamily="@font/drystick_regular" />
+                <TextView
+                    android:id="@+id/lokasiku"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="CAN'T GRAB LOCATION"
+                    android:textSize="15sp"
+                    android:textColor="#7A7A7A"
+                    android:fontFamily="@font/drystick_regular" />
+                <TextView
+                    android:id="@+id/down1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="CRYPTX"
+                    android:layout_marginTop="40dp"
+                    android:textSize="30sp"
+                    android:textColor="#164883"
+                    android:fontFamily="@font/font2" />
+                <TextView
+                    android:id="@+id/down2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="x"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/drystick_bold" />
+                <TextView
+                    android:id="@+id/down3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="USER LOCATOR VERIFICATION"
+                    android:textSize="20sp"
+                    android:textColor="#164883"
+                    android:fontFamily="@font/drystick_bold" />
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+</LinearLayout>

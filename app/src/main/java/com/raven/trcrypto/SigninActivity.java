@@ -19,6 +19,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SigninActivity extends AppCompatActivity {
+    /// felix
+    private Button gomaps;
+    ///
     private EditText mEmail , mPass;
     private TextView mTextView;
     private Button signInBtn;
@@ -35,6 +38,7 @@ public class SigninActivity extends AppCompatActivity {
         mPass = findViewById(R.id.passwordsignin);
         signInBtn = findViewById(R.id.btn_signin);
         mTextView = findViewById(R.id.textviewsignin);
+        gomaps = findViewById(R.id.gomaps);
         sharedPreferences=getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
         String email=sharedPreferences.getString(KEY_EMAIL,null);
         if(email!=null){
@@ -60,6 +64,14 @@ public class SigninActivity extends AppCompatActivity {
                 loginUser();
             }
         });
+        //felix
+        gomaps.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SigninActivity.this, MapsActivity.class));
+            }
+        });
+        //
 
     }
     private void loginUser(){
