@@ -23,9 +23,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="405dp">
+        android:layout_height="405dp"
+        android:background="@drawable/bg2">
         <LinearLayout
-            android:background="@color/white"
+            android:background="@drawable/bg2"
             android:layout_width="match_parent"
             android:layout_height="350dp"
             android:orientation="vertical">
@@ -43,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bitcoin price"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textStyle="bold"
                 android:textSize="21sp"/>
             <LinearLayout
@@ -54,7 +55,7 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="35dp"
-                    app:srcCompat="@drawable/ic_baseline_attach_money_24"
+                    app:srcCompat="@drawable/ic_outline_attach_money_24"
                     tools:ignore="VectorDrawableCompat" />
 
 
@@ -62,23 +63,30 @@
                     android:id="@+id/currentprice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:text="0.00"
                     android:textSize="25dp"
                     android:layout_gravity="center_horizontal"
                     android:textStyle="bold"/>
             </LinearLayout>
         </LinearLayout>
+
         <androidx.cardview.widget.CardView
             android:layout_width="400dp"
             android:layout_height="120dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="275dp">
+            android:layout_marginTop="275dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            app:cardCornerRadius="10dp"
+
+            >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:weightSum="3">
+                android:weightSum="3"
+                >
                 <LinearLayout
                     android:gravity="center"
                     android:orientation="vertical"
@@ -89,6 +97,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Price Change 1H"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
                         android:textSize="15sp"
                         />
                     <TextView
@@ -112,6 +122,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Price Change 24H"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
                         android:textSize="15sp"
                         />
                     <TextView
@@ -135,6 +147,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Price Change 7D"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
                         android:textSize="15sp"
                         />
                     <TextView
@@ -154,23 +168,56 @@
 
 
     </RelativeLayout>
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Order type"
-        android:layout_marginLeft="10dp"
-        android:textSize="20dp"
-        android:layout_gravity="left"/>
+        android:background="@drawable/bg2">
+        <androidx.cardview.widget.CardView
+            android:layout_width="400dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="4dp"
+            app:cardCornerRadius="10dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:text=" ORDER TYPE"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:background="#a6a6a6"/>
+                <Spinner
+                    android:id="@+id/spinner1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    />
+
+            </LinearLayout>
 
 
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="400dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        />
+        </androidx.cardview.widget.CardView>
 
 
+    </LinearLayout>
+
+
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg2">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -179,23 +226,22 @@
         android:gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:srcCompat="@drawable/ic_baseline_attach_money_24"
-            tools:ignore="VectorDrawableCompat" />
+        android:layout_marginRight="10dp"
+        android:background="@color/white"
+        >
 
 
         <EditText
             android:id="@+id/amount"
-
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:textSize="25dp"
             android:hint="0.00"
             android:autofillHints="0.00"
-
+            android:textAlignment="center"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:background="@drawable/bg2"
             android:layout_gravity="center_horizontal"
             android:textStyle="bold"/>
     </LinearLayout>
@@ -214,17 +260,18 @@
             android:id="@+id/btn_submit"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-
-
-            android:backgroundTint="#00E500"
-
+            android:backgroundTint="@color/white"
             android:text="Submit"
             android:fontFamily="@font/drystick_bold"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
 
 
             />
     </LinearLayout>
+</LinearLayout>
+
+
+
 
 
 

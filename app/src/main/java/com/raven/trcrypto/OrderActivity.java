@@ -96,9 +96,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                 String text = spinner.getSelectedItem().toString();
                 String amounts=amount.getText().toString();
                 String pricenow=coin_price.getText().toString();
-                Log.d("wiw", "onClick: "+text);
-                Log.d("wiw", "onClick: "+amounts);
-                Log.d("wiw", "onClick: "+pricenow);
+
 
                 order(text,amounts,pricenow);
             }
@@ -107,10 +105,6 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
     }
 
     private void order(String typeorder,String amounts,String pricenow) {
-        Log.d("a", "order: ds");
-        Log.d("ui", "order: "+typeorder);
-        Log.d("ui", "order: "+amounts);
-        Log.d("ui", "order: "+pricenow);
         user= FirebaseAuth.getInstance().getCurrentUser();
         reference= FirebaseDatabase.getInstance().getReference("Users");
         userID=user.getUid();
@@ -129,7 +123,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                             Wallet wallet = snapshot.getValue(Wallet.class);
                             if (wallet != null) {
                                 if (typeorder.equals("Buy")) {
-                                    //Log.d("zz", "order: "+wallet.getRp());
+
                                     if (Double.valueOf(wallet.getRp()) >= 100 && Double.valueOf(wallet.getRp()) >= Double.valueOf(amounts)) {
                                         if (symbol.equals("bitcoin")) {
                                             String total = String.valueOf(Double.valueOf(wallet.getBtc()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
@@ -280,7 +274,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
     }
     private void loadData(String symbol){
         client=new OkHttpClient();
-        Log.d("vuk", "loadData: "+symbol);
+
         String url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids="+symbol+"&order=market_cap_desc&sparkline=false&price_change_percentage=1h%2C24h%2C7d";
         request=new Request.Builder().url(url).build();
         client.newCall(request).enqueue(new Callback() {
@@ -293,15 +287,13 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String body=response.body().string();
-                Log.d("aaab", "onResponse: "+body);
+
                 Gson gson=new Gson();
                 final List<CoinModel> newItems=gson.fromJson(body,new TypeToken<List<CoinModel>>(){}.getType());
-                //   items=newItems;
-                Log.d("huhu", "run: "+items.size());
+
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Log.d("sss", "run: "+newItems.size());
                         coin_name.setText(newItems.get(0).getName());
                         coin_price.setText(newItems.get(0).getCurrent_price());
 

@@ -37,8 +37,7 @@ public class SignupActivity extends AppCompatActivity{
     private FirebaseUser user;
     private DatabaseReference reference;
     private String userID;
-  //  private DatabaseReference mFirebaseDatabase;
-   // private String userId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +49,6 @@ public class SignupActivity extends AppCompatActivity{
         mTextView = findViewById(R.id.textviewsignin);
         signUpBtn = findViewById(R.id.btn_signup);
         mAuth = FirebaseAuth.getInstance();
-        //FirebaseDatabase mFirebaseInstance = FirebaseDatabase.getInstance();
-       // mFirebaseDatabase = mFirebaseInstance.getReference("users");
 
         mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,27 +123,18 @@ public class SignupActivity extends AppCompatActivity{
                 });
     }
     private void createWallet(){
-       // user= FirebaseAuth.getInstance().getCurrentUser();
         reference= FirebaseDatabase.getInstance().getReference("Wallets");
-
-       // Log.d("fuck2", user.getUid());
         walletID = reference.push().getKey();
         Wallet wallet = new Wallet("0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00","0.00" );
         reference.child(walletID).setValue(wallet);
         fillwalletid(walletID);
-
-
-      //  createUser(walletID);
-
-
     }
     private void fillwalletid(String walletID){
         user= FirebaseAuth.getInstance().getCurrentUser();
         reference= FirebaseDatabase.getInstance().getReference("Users");
         userID=user.getUid();
-       // Log.d("fuck1", user.getUid());
         reference.child(userID).child("walletid").setValue(walletID);
     }
-//////
+
 
 }

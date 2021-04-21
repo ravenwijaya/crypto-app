@@ -25,7 +25,6 @@ public class CoinAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     Activity activity;
     List<CoinModel> items;
     int visibleThreshold = 5, lastVisibleItem, totalItemCount;
-    //   private AdapterView.OnItemClickListener mListener;
     private OnItemClickListener mListener;
     public interface OnItemClickListener {
         void onItemClick(int position);
@@ -33,7 +32,7 @@ public class CoinAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void setOnItemClickListener(OnItemClickListener listener) {
         mListener = listener;
     }
-//
+
 
 
     public CoinAdapter(RecyclerView recyclerView, Activity activity, List<CoinModel> items) {

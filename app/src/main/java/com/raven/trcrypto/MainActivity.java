@@ -54,23 +54,16 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference reference;
     private String userID;
     private RecyclerView.RecyclerListener listener;
-
     private TextView digit;
-
-
     private static final String SHARED_PREF_NAME="mypref";
-    // private static final String KEY_NAME="name";
-    private static final String KEY_EMAIL="email";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //
+
         digit = findViewById(R.id.digit);
-
-        ///
-
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -123,30 +116,18 @@ public class MainActivity extends AppCompatActivity {
     public void setupAdapter(){
         adapter=new CoinAdapter(recyclerView,MainActivity.this,items);
         recyclerView.setAdapter(adapter);
-        adapter.setiLoadMore(new ILoadMore(){
-            @Override
-            public void onLoadMore(){
-                if(items.size()<=1000){
-                    loadNext10Coin(items.size());
-                }else
-                {
-                    Toast.makeText(MainActivity.this,"MAX",Toast.LENGTH_SHORT).show();
-
-                }
-            }
-        });
         adapter.setOnItemClickListener(new CoinAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
                 String symbol=   items.get(position).getName().toLowerCase();
-                //  Log.d("HUHH", "onItemClick: "+symbol);
                 Intent intent=new Intent(MainActivity.this,OrderActivity.class);
                 intent.putExtra("Symbol",symbol);
                 startActivity(intent);
             }
         });
     }
-    private void loadNext10Coin(int index){
+
+    private void loadFirst10coin(int index){
         client=new OkHttpClient();
         request=new Request.Builder().url("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=uniswap%2Caave%2Cpolkadot%2Cdogecoin%2Ccardano%2Cbitcoin%2Cchainlink%2Csushi%2Cthorchain&order=market_cap_desc&sparkline=false&price_change_percentage=1h%2C24h%2C7d").build();
         swipeRefreshLayout.setRefreshing(true);
@@ -154,13 +135,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call call, IOException e) {
                 Toast.makeText(MainActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
-
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String body=response.body().string();
-                Log.d("aaab", "onResponse: "+body);
                 Gson gson=new Gson();
                 final List<CoinModel> newItems=gson.fromJson(body,new TypeToken<List<CoinModel>>(){}.getType());
                 runOnUiThread(new Runnable() {
@@ -175,35 +154,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-    }
-    private void loadFirst10coin(int index){
-        client=new OkHttpClient();
-        request=new Request.Builder().url("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=uniswap%2Caave%2Cpolkadot%2Cdogecoin%2Ccardano%2Cbitcoin%2Cchainlink%2Csushi%2Cthorchain&order=market_cap_desc&sparkline=false&price_change_percentage=1h%2C24h%2C7d").build();
-        swipeRefreshLayout.setRefreshing(true);
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                Toast.makeText(MainActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
-
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                String body=response.body().string();
-                Gson gson=new Gson();
-                final List<CoinModel> newItems=gson.fromJson(body,new TypeToken<List<CoinModel>>(){}.getType());
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        adapter.updateData(newItems);
-
-                    }
-                });
-
-            }
-        });
         if(swipeRefreshLayout.isRefreshing())
             swipeRefreshLayout.setRefreshing(false);
 
@@ -212,8 +162,6 @@ public class MainActivity extends AppCompatActivity {
         user= FirebaseAuth.getInstance().getCurrentUser();
         reference= FirebaseDatabase.getInstance().getReference("Users");
         userID=user.getUid();
-        //  String walletid=reference.child(userID).child("walletid").toString();
-
         swipeRefreshLayout.setRefreshing(true);
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -221,7 +169,6 @@ public class MainActivity extends AppCompatActivity {
                 User userProfile=snapshot.getValue(User.class);
                 if(userProfile!=null){
                     String walletid=userProfile.getWalletid();
-                    // digit.setText(balance);
                     user= FirebaseAuth.getInstance().getCurrentUser();
                     reference= FirebaseDatabase.getInstance().getReference("Wallets");
                     reference.child(walletid).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -230,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
                             Wallet wallet=snapshot.getValue(Wallet.class);
                             if(wallet!=null){
                                 String rp=wallet.getRp();
-                                digit.setText(rp);
+                                digit.setText(getDecimalFormat(rp));
                             }
                         }
 
@@ -257,6 +204,18 @@ public class MainActivity extends AppCompatActivity {
         });
         if(swipeRefreshLayout.isRefreshing())
             swipeRefreshLayout.setRefreshing(false);
+    }
+    private static String getDecimalFormat(String value) {
+        String getValue = String.valueOf(value).split("[.]")[1];
+        if (getValue.length() == 1) {
+            return String.valueOf(value).split("[.]")[0] +
+                    "." + getValue.substring(0, 1) +
+                    String.format("%0" + 1 + "d", 0);
+        } else {
+            return String.valueOf(value).split("[.]")[0]
+                    + "." + getValue.substring(0, 2);
+        }
+
     }
 
 

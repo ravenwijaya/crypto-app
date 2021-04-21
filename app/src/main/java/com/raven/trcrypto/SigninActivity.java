@@ -19,16 +19,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SigninActivity extends AppCompatActivity {
-    /// felix
     private Button gomaps;
-    ///
     private EditText mEmail , mPass;
     private TextView mTextView;
     private Button signInBtn;
     private FirebaseAuth mAuth;
     SharedPreferences sharedPreferences;
     private static final String SHARED_PREF_NAME="mypref";
-   // private static final String KEY_NAME="name";
     private static final String KEY_EMAIL="email";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +68,7 @@ public class SigninActivity extends AppCompatActivity {
                 startActivity(new Intent(SigninActivity.this, MapsActivity.class));
             }
         });
-        //
+
 
     }
     private void loginUser(){
