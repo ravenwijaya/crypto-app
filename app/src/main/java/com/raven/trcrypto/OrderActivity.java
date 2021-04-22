@@ -62,6 +62,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
     private FirebaseUser user;
     private DatabaseReference reference;
     private String userID;
+    private String amounts;
 
 
 
@@ -96,6 +97,9 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
             public void onClick(View v) {
                 String text = spinner.getSelectedItem().toString();
                 String amounts=amount.getText().toString();
+                if (amounts.isEmpty()){
+                    amounts="0.00";
+                }
                 String pricenow=coin_price.getText().toString();
 
 
@@ -140,8 +144,12 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                             Wallet wallet = snapshot.getValue(Wallet.class);
                             if (wallet != null) {
                                 if (typeorder.equals("Buy")) {
+                                    if(Double.valueOf(amounts)<=1.00){
+                                        Toast.makeText(OrderActivity.this, "minimum transaction 1 Usd", Toast.LENGTH_SHORT).show();
+                                    }
 
-                                    if (Double.valueOf(wallet.getRp()) >= 100 && Double.valueOf(wallet.getRp()) >= Double.valueOf(amounts)) {
+
+                                    if ( Double.valueOf(amounts)<=Double.valueOf(wallet.getRp())&& Double.valueOf(amounts)>1.00) {
                                         if (symbol.equals("bitcoin")) {
                                             String total = String.valueOf(Double.valueOf(wallet.getBtc()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
                                             String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
@@ -189,10 +197,13 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                                             reference.child(walletid).child("dot").setValue(total);
                                         }
                                     } else {
-                                        Toast.makeText(OrderActivity.this, "The minimum buying amount is worth of $100", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(OrderActivity.this, "Insiffucient Usd Balance", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                                 else if (typeorder.equals("Sell")) {
+                                    if(Double.valueOf(amounts)==0.00){
+                                        Toast.makeText(OrderActivity.this, "input amount ", Toast.LENGTH_SHORT).show();
+                                    }
                                     if (symbol.equals("bitcoin")) {
                                         if (Double.valueOf(amounts)<=Double.valueOf(wallet.getBtc())  ) {
                                             String total = String.valueOf(Double.valueOf(wallet.getBtc()) - Double.valueOf(amounts));
