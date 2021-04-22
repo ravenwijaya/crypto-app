@@ -200,7 +200,7 @@
                             android:textStyle="bold"
                             android:textColor="@color/white"
                             android:textSize="15dp"
-                            android:background="#a6a6a6"/>
+                            android:background="@drawable/bg2"/>
                         <Spinner
                             android:id="@+id/spinner1"
                             android:layout_width="match_parent"

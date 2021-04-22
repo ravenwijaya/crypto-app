@@ -144,12 +144,12 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                             Wallet wallet = snapshot.getValue(Wallet.class);
                             if (wallet != null) {
                                 if (typeorder.equals("Buy")) {
-                                    if(Double.valueOf(amounts)<=1.00){
+                                    if(Double.valueOf(amounts)<1.00){
                                         Toast.makeText(OrderActivity.this, "minimum transaction 1 Usd", Toast.LENGTH_SHORT).show();
                                     }
 
 
-                                    if ( Double.valueOf(amounts)<=Double.valueOf(wallet.getRp())&& Double.valueOf(amounts)>1.00) {
+                                    if ( Double.valueOf(amounts)<=Double.valueOf(wallet.getRp())&& Double.valueOf(amounts)>=1.00) {
                                         if (symbol.equals("bitcoin")) {
                                             String total = String.valueOf(Double.valueOf(wallet.getBtc()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
                                             String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
