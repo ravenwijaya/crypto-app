@@ -84,7 +84,7 @@ public class WalletActivity extends AppCompatActivity {
                             Wallet wallet=snapshot.getValue(Wallet.class);
                             if(wallet!=null){
                                 String rp=wallet.getRp();
-                                usd.setText(getDecimalFormat(wallet.getRp()));
+                                usd.setText("$ "+getDecimalFormat(wallet.getRp()));
                                 aave.setText(getDecimalFormat(wallet.getAave()));
                                 ada.setText(getDecimalFormat(wallet.getAda()));
                                 btc.setText(getDecimalFormat(wallet.getBtc()));

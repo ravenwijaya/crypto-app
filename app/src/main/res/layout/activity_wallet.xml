@@ -29,18 +29,21 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
+
                 android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="8dp"
                 app:cardCornerRadius="10dp"
+
                 >
 
                 <LinearLayout
-                    android:layout_margin="8dp"
+                    android:background="#ff3232"
+
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <GridLayout
                         android:layout_width="match_parent"
@@ -60,9 +63,10 @@
                             app:cardBackgroundColor="@android:color/transparent"
                             app:cardElevation="0dp">
                             <TextView
-
+                                android:textColor="@color/white"
                                 android:text="Usd"
-                                android:layout_marginBottom="8dp"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="10dp"
                                 android:layout_marginLeft="40dp"
                                 android:textSize="20dp"
                                 android:layout_width="wrap_content"
@@ -85,11 +89,17 @@
                             app:cardElevation="0dp">
                             <TextView
                                 android:id="@+id/usd"
+                                android:textColor="@color/white"
                                 android:text="0.00000"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
                                 android:layout_gravity="end"
+                                android:layout_marginEnd="40dp"
+                                android:layout_marginRight="40dp"
+                                android:layout_marginBottom="20dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                />
+                               />
 
 
                         </androidx.cardview.widget.CardView>
@@ -102,18 +112,21 @@
 
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+
                 android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="8dp"
                 app:cardCornerRadius="10dp"
+
                 >
 
                 <LinearLayout
-                    android:layout_margin="8dp"
+                    android:background="@drawable/bg1"
+
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <GridLayout
                         android:layout_width="match_parent"
@@ -133,9 +146,10 @@
                             app:cardBackgroundColor="@android:color/transparent"
                             app:cardElevation="0dp">
                             <TextView
-
-                                android:text="Aave"
-                                android:layout_marginBottom="8dp"
+                                android:textColor="@color/white"
+                                android:text="Aave | aave"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="10dp"
                                 android:layout_marginLeft="40dp"
                                 android:textSize="20dp"
                                 android:layout_width="wrap_content"
@@ -158,8 +172,14 @@
                             app:cardElevation="0dp">
                             <TextView
                                 android:id="@+id/aave"
+                                android:textColor="@color/white"
                                 android:text="0.00000"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
                                 android:layout_gravity="end"
+                                android:layout_marginEnd="40dp"
+                                android:layout_marginRight="40dp"
+                                android:layout_marginBottom="20dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 />
@@ -175,18 +195,21 @@
 
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+
                 android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="8dp"
                 app:cardCornerRadius="10dp"
+
                 >
 
                 <LinearLayout
-                    android:layout_margin="8dp"
+                    android:background="@color/black"
+
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <GridLayout
                         android:layout_width="match_parent"
@@ -206,9 +229,10 @@
                             app:cardBackgroundColor="@android:color/transparent"
                             app:cardElevation="0dp">
                             <TextView
-
-                                android:text="Cardano"
-                                android:layout_marginBottom="8dp"
+                                android:textColor="@color/white"
+                                android:text="Cardano | ada"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="10dp"
                                 android:layout_marginLeft="40dp"
                                 android:textSize="20dp"
                                 android:layout_width="wrap_content"
@@ -231,8 +255,14 @@
                             app:cardElevation="0dp">
                             <TextView
                                 android:id="@+id/ada"
+                                android:textColor="@color/white"
                                 android:text="0.00000"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
                                 android:layout_gravity="end"
+                                android:layout_marginEnd="40dp"
+                                android:layout_marginRight="40dp"
+                                android:layout_marginBottom="20dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 />
@@ -248,18 +278,21 @@
 
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+
                 android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="8dp"
                 app:cardCornerRadius="10dp"
+
                 >
 
                 <LinearLayout
-                    android:layout_margin="8dp"
+                    android:background="#ffa500"
+
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <GridLayout
                         android:layout_width="match_parent"
@@ -279,9 +312,10 @@
                             app:cardBackgroundColor="@android:color/transparent"
                             app:cardElevation="0dp">
                             <TextView
-
-                                android:text="Doge"
-                                android:layout_marginBottom="8dp"
+                                android:textColor="@color/white"
+                                android:text="Doge | doge"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="10dp"
                                 android:layout_marginLeft="40dp"
                                 android:textSize="20dp"
                                 android:layout_width="wrap_content"
@@ -304,8 +338,14 @@
                             app:cardElevation="0dp">
                             <TextView
                                 android:id="@+id/doge"
+                                android:textColor="@color/white"
                                 android:text="0.00000"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
                                 android:layout_gravity="end"
+                                android:layout_marginEnd="40dp"
+                                android:layout_marginRight="40dp"
+                                android:layout_marginBottom="20dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 />
@@ -321,18 +361,21 @@
 
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+
                 android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="8dp"
                 app:cardCornerRadius="10dp"
+
                 >
 
                 <LinearLayout
-                    android:layout_margin="8dp"
+                    android:background="#284dff "
+
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <GridLayout
                         android:layout_width="match_parent"
@@ -352,9 +395,10 @@
                             app:cardBackgroundColor="@android:color/transparent"
                             app:cardElevation="0dp">
                             <TextView
-
-                                android:text="Chainlink"
-                                android:layout_marginBottom="8dp"
+                                android:textColor="@color/white"
+                                android:text="Chainlink | link"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="10dp"
                                 android:layout_marginLeft="40dp"
                                 android:textSize="20dp"
                                 android:layout_width="wrap_content"
@@ -377,8 +421,14 @@
                             app:cardElevation="0dp">
                             <TextView
                                 android:id="@+id/link"
+                                android:textColor="@color/white"
                                 android:text="0.00000"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
                                 android:layout_gravity="end"
+                                android:layout_marginEnd="40dp"
+                                android:layout_marginRight="40dp"
+                                android:layout_marginBottom="20dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 />
@@ -394,18 +444,21 @@
 
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+
                 android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="8dp"
                 app:cardCornerRadius="10dp"
+
                 >
 
                 <LinearLayout
-                    android:layout_margin="8dp"
+                    android:background="@color/white"
+
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <GridLayout
                         android:layout_width="match_parent"
@@ -425,9 +478,10 @@
                             app:cardBackgroundColor="@android:color/transparent"
                             app:cardElevation="0dp">
                             <TextView
-
-                                android:text="Polkadot"
-                                android:layout_marginBottom="8dp"
+                                android:textColor="@color/black"
+                                android:text="Polkadot | dot"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="10dp"
                                 android:layout_marginLeft="40dp"
                                 android:textSize="20dp"
                                 android:layout_width="wrap_content"
@@ -450,8 +504,14 @@
                             app:cardElevation="0dp">
                             <TextView
                                 android:id="@+id/dot"
+                                android:textColor="@color/black"
                                 android:text="0.00000"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
                                 android:layout_gravity="end"
+                                android:layout_marginEnd="40dp"
+                                android:layout_marginRight="40dp"
+                                android:layout_marginBottom="20dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 />
@@ -467,18 +527,21 @@
 
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+
                 android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="8dp"
                 app:cardCornerRadius="10dp"
+
                 >
 
                 <LinearLayout
-                    android:layout_margin="8dp"
+                    android:background="#2ED1A2"
+
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <GridLayout
                         android:layout_width="match_parent"
@@ -498,9 +561,10 @@
                             app:cardBackgroundColor="@android:color/transparent"
                             app:cardElevation="0dp">
                             <TextView
-
-                                android:text="Thorchain"
-                                android:layout_marginBottom="8dp"
+                                android:textColor="@color/white"
+                                android:text="Thorchain | rune"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="10dp"
                                 android:layout_marginLeft="40dp"
                                 android:textSize="20dp"
                                 android:layout_width="wrap_content"
@@ -523,8 +587,14 @@
                             app:cardElevation="0dp">
                             <TextView
                                 android:id="@+id/rune"
+                                android:textColor="@color/white"
                                 android:text="0.00000"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
                                 android:layout_gravity="end"
+                                android:layout_marginEnd="40dp"
+                                android:layout_marginRight="40dp"
+                                android:layout_marginBottom="20dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 />
@@ -540,18 +610,21 @@
 
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+
                 android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="8dp"
                 app:cardCornerRadius="10dp"
+
                 >
 
                 <LinearLayout
-                    android:layout_margin="8dp"
+                    android:background="#ffb6c1"
+
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <GridLayout
                         android:layout_width="match_parent"
@@ -571,9 +644,10 @@
                             app:cardBackgroundColor="@android:color/transparent"
                             app:cardElevation="0dp">
                             <TextView
-
-                                android:text="sushi"
-                                android:layout_marginBottom="8dp"
+                                android:textColor="@color/white"
+                                android:text="Sushi | sushi"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="10dp"
                                 android:layout_marginLeft="40dp"
                                 android:textSize="20dp"
                                 android:layout_width="wrap_content"
@@ -596,8 +670,14 @@
                             app:cardElevation="0dp">
                             <TextView
                                 android:id="@+id/sushi"
+                                android:textColor="@color/white"
                                 android:text="0.00000"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
                                 android:layout_gravity="end"
+                                android:layout_marginEnd="40dp"
+                                android:layout_marginRight="40dp"
+                                android:layout_marginBottom="20dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 />
@@ -613,18 +693,21 @@
 
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+
                 android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="8dp"
                 app:cardCornerRadius="10dp"
+
                 >
 
                 <LinearLayout
-                    android:layout_margin="8dp"
+                    android:background="#F2A900"
+
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <GridLayout
                         android:layout_width="match_parent"
@@ -644,9 +727,10 @@
                             app:cardBackgroundColor="@android:color/transparent"
                             app:cardElevation="0dp">
                             <TextView
-
-                                android:text="Bitcoin"
-                                android:layout_marginBottom="8dp"
+                                android:textColor="@color/white"
+                                android:text="Bitcoin | btc"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="10dp"
                                 android:layout_marginLeft="40dp"
                                 android:textSize="20dp"
                                 android:layout_width="wrap_content"
@@ -669,8 +753,14 @@
                             app:cardElevation="0dp">
                             <TextView
                                 android:id="@+id/btc"
+                                android:textColor="@color/white"
                                 android:text="0.00000"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
                                 android:layout_gravity="end"
+                                android:layout_marginEnd="40dp"
+                                android:layout_marginRight="40dp"
+                                android:layout_marginBottom="20dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 />
@@ -686,18 +776,21 @@
 
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+
                 android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="8dp"
                 app:cardCornerRadius="10dp"
+
                 >
 
                 <LinearLayout
-                    android:layout_margin="8dp"
+                    android:background="#F06291"
+
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <GridLayout
                         android:layout_width="match_parent"
@@ -717,9 +810,10 @@
                             app:cardBackgroundColor="@android:color/transparent"
                             app:cardElevation="0dp">
                             <TextView
-
-                                android:text="Uniswap"
-                                android:layout_marginBottom="8dp"
+                                android:textColor="@color/white"
+                                android:text="Uniswap | uni"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="10dp"
                                 android:layout_marginLeft="40dp"
                                 android:textSize="20dp"
                                 android:layout_width="wrap_content"
@@ -742,8 +836,14 @@
                             app:cardElevation="0dp">
                             <TextView
                                 android:id="@+id/uni"
+                                android:textColor="@color/white"
                                 android:text="0.00000"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
                                 android:layout_gravity="end"
+                                android:layout_marginEnd="40dp"
+                                android:layout_marginRight="40dp"
+                                android:layout_marginBottom="20dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 />
