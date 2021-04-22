@@ -19,13 +19,16 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SigninActivity extends AppCompatActivity {
-    private Button gomaps;
+    /// felix
+    private Button gomaps,godepo;
+    ///
     private EditText mEmail , mPass;
     private TextView mTextView;
     private Button signInBtn;
     private FirebaseAuth mAuth;
     SharedPreferences sharedPreferences;
     private static final String SHARED_PREF_NAME="mypref";
+   // private static final String KEY_NAME="name";
     private static final String KEY_EMAIL="email";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,7 @@ public class SigninActivity extends AppCompatActivity {
         signInBtn = findViewById(R.id.btn_signin);
         mTextView = findViewById(R.id.textviewsignin);
         gomaps = findViewById(R.id.gomaps);
+        godepo = findViewById(R.id.godeposit);
         sharedPreferences=getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
         String email=sharedPreferences.getString(KEY_EMAIL,null);
         if(email!=null){
@@ -69,6 +73,13 @@ public class SigninActivity extends AppCompatActivity {
             }
         });
 
+        godepo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SigninActivity.this, WithdrawActivity.class));
+            }
+        });
+        //
 
     }
     private void loginUser(){

@@ -1,6 +1,9 @@
 package com.raven.trcrypto;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
@@ -18,6 +21,7 @@ import android.Manifest;
 
 import android.util.Log;
 
+import android.view.MenuItem;
 import android.widget.TextView;
 
 
@@ -39,9 +43,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
     private TextView lokasi;
+    private ActionBar mActionBar;
     private final float color[] = {BitmapDescriptorFactory.HUE_BLUE,
             BitmapDescriptorFactory.HUE_GREEN,
             BitmapDescriptorFactory.HUE_MAGENTA,
@@ -54,15 +59,30 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        Toolbar toolbar=findViewById(R.id.toolbarmap);
+        setSupportActionBar(toolbar);
+        mActionBar=getSupportActionBar();
+        mActionBar.setDisplayHomeAsUpEnabled(true);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
         lokasi = findViewById(R.id.lokasiku);
-        String[] permission = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
+
+
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -148,6 +168,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             buildAlertMessageNoGps();
 
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        final LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+        if (manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            getloc();
         }
     }
 

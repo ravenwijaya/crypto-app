@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.raven.trcrypto">
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -14,14 +15,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TRCRYPTO"
         android:usesCleartextTraffic="true">
+        <activity android:name=".WithdrawActivity"></activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
-        <activity android:name=".OrderActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:label="@string/title_activity_maps" />
+        <activity
+            android:name=".OrderActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
