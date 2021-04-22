@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".Deposit2_Activity"
-    tools:showIn="@layout/activity_deposit2_"
+    tools:context=".deposit2"
+    tools:showIn="@layout/activity_deposit2"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/howtodeposit"
+        android:id="@+id/how_to_deposit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18dp"
@@ -20,17 +20,86 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"/>
 
-    <TextView
-        android:id="@+id/bnicustomer"
-        android:layout_width="wrap_content"
+    //Start of BCA Customers
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="13dp"
-        android:text="BNI Customer"
-        android:textColor="@color/gray"
-        android:textStyle="bold"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"/>
+        android:background="#BFE4F0FF"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:id="@+id/bcacustomer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="BCA Customer"
+            android:textColor="@color/gray"
+            android:textSize="13dp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/deposit_customer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:entries="@array/menu_deposit"
+            android:padding="3dp" />
+
+        <Spinner
+            android:id="@+id/deposit_customer2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:entries="@array/menu_deposit2"
+            android:padding="3dp" />
 
 
+    </LinearLayout>
+    //End of BCA Customers
+
+    //Start of Non-BCA Customers
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#BFE4F0FF"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:id="@+id/non_bca_customer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13dp"
+            android:text="Non-BCA Bank Customer"
+            android:textColor="@color/gray"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"/>
+
+        <Spinner
+            android:id="@+id/deposit_customer3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:entries="@array/menu_deposit3"
+            android:padding="3dp" />
+
+        <Spinner
+            android:padding="3dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/deposit_customer4"
+            android:entries="@array/menu_deposit4" />
+    </LinearLayout>
 
 </LinearLayout>
+
+

@@ -111,16 +111,16 @@
                             tools:ignore="VectorDrawableCompat" />
 
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="30dp"
-                            android:layout_marginTop="6dp"
+                        <Button
+                            android:id="@+id/go_to_deposit1"
+                            android:layout_width="57dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="35dp"
+                            android:layout_marginTop="2dp"
                             android:text="Deposit"
-                            android:textSize="15dp"
+                            android:fontFamily="@font/drystick_bold"
                             android:textColor="@color/white"
-
-                            />
+                            android:textSize="5dp" />
 
 
                     </androidx.cardview.widget.CardView>

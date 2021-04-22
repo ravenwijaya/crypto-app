@@ -15,8 +15,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TRCRYPTO"
         android:usesCleartextTraffic="true">
-        <activity android:name=".WalletActivity"
-            android:parentActivityName=".MainActivity" ></activity>
+        <activity
+            android:name=".deposit2"
+            android:label="@string/title_activity_deposit2"
+            android:theme="@style/Theme.TRCRYPTO.NoActionBar"></activity>
+        <activity android:name=".deposit1" />
+        <activity
+            android:name=".WalletActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".WithdrawActivity" />
 
         <meta-data

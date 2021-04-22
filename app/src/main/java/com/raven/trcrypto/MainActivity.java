@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -61,10 +62,16 @@ public class MainActivity extends AppCompatActivity {
     private static final String SHARED_PREF_NAME="mypref";
 
 
+    //nambah button
+    private Button depo1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //deposit
+        depo1 = findViewById(R.id.go_to_deposit1);
 
         digit = findViewById(R.id.digit);
         wall=findViewById(R.id.wallete);
@@ -104,6 +111,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         setupAdapter();
+
+        //deposit1
+        depo1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, deposit1.class));
+            }
+        });
 
     }
 

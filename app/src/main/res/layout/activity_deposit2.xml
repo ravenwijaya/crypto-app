@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".deposit2"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/toolbarmap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:theme="@style/ToolbarThemeOverlay"
+                app:title="Deposit Rupiah"
+                app:titleMarginStart="0dp"
+                android:paddingBottom="10dp"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        // Start Bank BCA
+        <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="9dp"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="6dp">
+
+            //Frame sisi kiri
+            <FrameLayout
+                android:layout_width="4dp"
+                android:layout_height="match_parent"
+                android:background="#005EFF" />
+
+            //Linear Layout dasar BCA
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#BFE4F0FF"
+
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                //Liner Layout keseluruhan
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    //Kolom 1 untuk BCA
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/drystick_bold"
+                            android:text="BCA"
+                            android:textColor="#505050"
+                            android:textSize="17sp" />
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/ic_bca" />
+                    </LinearLayout>
+                    //End of Kolom 1 BCA
+
+                    //Linear layout kolom 2 BCA
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/drystick_bold"
+                            android:text=""
+                            android:textColor="#000000"
+                            android:textSize="17sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="672018053"
+                            android:textColor="#454545"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Samuel Nugraha"
+                            android:textColor="#454545"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                    //End of Linear layout 2 BCA
+
+                    //Linear layout 3 BCA
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:orientation="vertical">
+
+                        <!--<RadioButton
+                            android:id="@+id/bca"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:buttonTint="#ff0000"
+                            android:enabled="false"
+                            android:paddingTop="41dp" />-->
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        //End of Bank BCA
+
+        <TextView
+            android:id="@+id/txt_transfer_deposit2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Transfer funds to the following account"
+            android:textColor="@color/black"
+            android:paddingBottom="2dp"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:paddingTop="20dp"/>
+
+        <TextView
+            android:id="@+id/txt_transfer2_deposit2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Transfer can be done from any banks in Indonesia"
+            android:textColor="@color/black"
+            android:textSize="11dp"
+            android:layout_marginBottom="15dp"
+
+            />
+
+
+        <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="9dp"
+            app:cardCornerRadius="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#BFE4F0FF"
+
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    //Kolom 1 untuk BCA
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/ic_bca"
+                            android:layout_marginBottom="10dp" />
+                    </LinearLayout>
+
+                    //Kolom 2 layout BCA
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Virtual Account Number"
+                            android:textColor="@color/black"
+                            android:textSize="10dp"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="9889688863044772"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:textStyle="bold"
+                            android:paddingBottom="30dp"/>
+
+                    </LinearLayout>
+
+                    //Kolom 3 layput BCA
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Account Name"
+                            android:textColor="@color/black"
+                            android:textSize="10dp"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Samuel Nugraha"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        //info Garansi
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="35dp"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_secure" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:text="Secure Transaction Guaranteed"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="10dp" />
+                <TextView
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:paddingBottom="5dp"
+                    android:text="Money will be transfered to your bank account within 24 hours. Contack us if you have question"
+                    android:textColor="@color/gray"
+                    android:textSize="8dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <include layout="@layout/content_scrolling" />
+
+    </LinearLayout>
+
+</ScrollView>
+
+

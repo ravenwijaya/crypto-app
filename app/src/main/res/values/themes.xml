@@ -16,7 +16,17 @@
         <!-- Customize your theme here. -->
 
     </style>
+
     <style name="ToolbarThemeOverlay" parent="@style/Theme.AppCompat.DayNight.DarkActionBar">
         <item name="fontFamily">@font/font2</item>
     </style>
+
+    <style name="Theme.TRCRYPTO.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.TRCRYPTO.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.TRCRYPTO.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
