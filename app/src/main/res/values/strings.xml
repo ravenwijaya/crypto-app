@@ -14,4 +14,47 @@
         <item>Buy</item>
         <item>Sell</item>
     </string-array>
+    <string name="bank">Mandiri</string>
+    //string buat menu deposit 2
+    <string-array name="menu_deposit">
+        <item>BCA ATM</item>
+        <item>1. Insert your ATM card and input your PIN. </item>
+        <item>2. Choose Another Menu.</item>
+        <item>3. Choose Virtual Account Billing.</item>
+        <item>4. Input the Virtual Account number above.</item>
+        <item>5. Input the amount of Rupiah you want to deposit.</item>
+        <item>6. Follow further instruction.</item>
+    </string-array>
+
+    <string-array name="menu_deposit2">
+        <item>BCA Mobile Banking</item>
+        <item>1. Login to your BCA Mobile Banking account. </item>
+        <item>2. Choose Transfer.</item>
+        <item>3. Choose Virtual Account Billing.</item>
+        <item>4. Input the Virtual Account number above.</item>
+        <item>5. Input the amount of Rupiah you want to deposit.</item>
+        <item>6. Follow further instruction.</item>
+    </string-array>
+
+    <string-array name="menu_deposit3">
+        <item>ATM Bersama</item>
+        <item>1. Insert your ATM card and input your PIN. </item>
+        <item>2. Choose Another Transaction Menu.</item>
+        <item>3. Choose Transfer to Another Bank.</item>
+        <item>4. Input BCA bank code followed by  the Virtual Account number above.</item>
+        <item>5. Input the amount of Rupiah you want to deposit.</item>
+        <item>6. Follow further instruction.</item>
+    </string-array>
+
+    <string-array name="menu_deposit4">
+        <item>Transfer from Other Bank</item>
+        <item>1. Choose Transfer to other bank menu or Transfer online to other bank. </item>
+        <item>2. Input BCA bank code or choose BCA as a transfer destination.</item>
+        <item>3. Input the Virtual Account number above as the destination account.</item>
+        <item>4. If the name of the account owner is asked as an additional information on the destination account, fill in the name listed in the Account Name section above.</item>
+        <item>5. Input the amount of Rupiah you want to deposit.</item>
+        <item>6. Follow further instruction.</item>
+    </string-array>
+    <string name="title_activity_deposit2">ScrollingActivity</string>
+    <string name="action_settings">Settings</string>
 </resources>
