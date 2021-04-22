@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Context;
 import android.content.Intent;
@@ -55,6 +56,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
     private Button submitBtn;
     public TextView coin_name,coin_price,one_hour_change,twenty_hours_change,seven_days_change;
     OkHttpClient client;
+    SwipeRefreshLayout swipeRefreshLayout;
     Request request;
     String symbol;
     private FirebaseUser user;
@@ -84,7 +86,6 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         twenty_hours_change=findViewById(R.id.twentyfourHour);
         seven_days_change=findViewById(R.id.sevenDay);
 
-        loadData(symbol);
         Spinner spinner=findViewById(R.id.spinner1);
         ArrayAdapter<CharSequence>adapter=ArrayAdapter.createFromResource(this,R.array.ordertype, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -101,6 +102,22 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                 order(text,amounts,pricenow);
             }
         });
+        swipeRefreshLayout=(SwipeRefreshLayout) findViewById(R.id.swipe_to_refresh);
+        swipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                loadData(symbol);
+            }
+        });
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                loadData(symbol);
+
+            }
+        });
+
+
 
     }
 
@@ -274,7 +291,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
     }
     private void loadData(String symbol){
         client=new OkHttpClient();
-
+        swipeRefreshLayout.setRefreshing(true);
         String url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids="+symbol+"&order=market_cap_desc&sparkline=false&price_change_percentage=1h%2C24h%2C7d";
         request=new Request.Builder().url(url).build();
         client.newCall(request).enqueue(new Callback() {
@@ -309,6 +326,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Color.parseColor("#FF0000") : Color.parseColor("#32CD32"));
                         seven_days_change.setTextColor(newItems.get(0).getPrice_change_percentage_7d_in_currency().contains("-") ?
                                 Color.parseColor("#FF0000") : Color.parseColor("#32CD32"));
+                        swipeRefreshLayout.setRefreshing(false);
                     }
                 });
 

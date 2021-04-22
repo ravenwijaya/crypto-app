@@ -20,258 +20,263 @@
             />
 
     </com.google.android.material.appbar.AppBarLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="405dp"
-        android:background="@drawable/bg2">
-        <LinearLayout
-            android:background="@drawable/bg2"
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:orientation="vertical">
-            <ImageView
-                android:id="@+id/iconbig"
-                android:layout_marginTop="45dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                app:srcCompat="@mipmap/ic_launcher_round"/>
-            <TextView
-                android:id="@+id/coinnamee"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bitcoin price"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="21sp"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal">
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="35dp"
-                    app:srcCompat="@drawable/ic_outline_attach_money_24"
-                    tools:ignore="VectorDrawableCompat" />
-
-
-                <TextView
-                    android:id="@+id/currentprice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="0.00"
-                    android:textSize="25dp"
-                    android:layout_gravity="center_horizontal"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="400dp"
-            android:layout_height="120dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="275dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginLeft="8dp"
-            app:cardCornerRadius="10dp"
-
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:weightSum="3"
-                >
-                <LinearLayout
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Price Change 1H"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/oneHour"
-                        android:text="-"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:paddingTop="10dp"
-                        />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Price Change 24H"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/twentyfourHour"
-                        android:text="-"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:paddingTop="10dp"
-                        />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Price Change 7D"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/sevenDay"
-                        android:text="-"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:paddingTop="10dp"
-                        />
-
-                </LinearLayout>
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-
-    </RelativeLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg2">
-        <androidx.cardview.widget.CardView
-            android:layout_width="400dp"
-            android:layout_height="100dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginRight="8dp"
-            android:layout_marginLeft="4dp"
-            app:cardCornerRadius="10dp"
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:gravity="center_vertical"
-                    android:text=" ORDER TYPE"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:textSize="15dp"
-                    android:background="#a6a6a6"/>
-                <Spinner
-                    android:id="@+id/spinner1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:background="@color/white"
-                    />
-
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
-
-
-    </LinearLayout>
-
-
-
-
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/bg2">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@color/white"
-        >
-
-
-        <EditText
-            android:id="@+id/amount"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:textSize="25dp"
-            android:hint="0.00"
-            android:autofillHints="0.00"
-            android:textAlignment="center"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
-            android:background="@drawable/bg2"
-            android:layout_gravity="center_horizontal"
-            android:textStyle="bold"/>
-    </LinearLayout>
-
-
-
-
-    <LinearLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_to_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
-        >
-        <Button
-            android:id="@+id/btn_submit"
-            android:layout_height="wrap_content"
+        tools:context="com.raven.trcrypto.MainActivity">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:backgroundTint="@color/white"
-            android:text="Submit"
-            android:fontFamily="@font/drystick_bold"
-            android:textColor="@color/black"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="405dp"
+                android:background="@drawable/bg2">
+                <LinearLayout
+                    android:background="@drawable/bg2"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:id="@+id/iconbig"
+                        android:layout_marginTop="45dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        app:srcCompat="@mipmap/ic_launcher_round"/>
+                    <TextView
+                        android:id="@+id/coinnamee"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bitcoin price"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="21sp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_horizontal">
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            app:srcCompat="@drawable/ic_outline_attach_money_24"
+                            tools:ignore="VectorDrawableCompat" />
 
 
-            />
-    </LinearLayout>
-</LinearLayout>
+                        <TextView
+                            android:id="@+id/currentprice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:text="0.00"
+                            android:textSize="25dp"
+                            android:layout_gravity="center_horizontal"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="400dp"
+                    android:layout_height="120dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="275dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    app:cardCornerRadius="10dp"
+
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="3"
+                        >
+                        <LinearLayout
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Price Change 1H"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/oneHour"
+                                android:text="-"
+                                android:textStyle="bold"
+                                android:textSize="20sp"
+                                android:paddingTop="10dp"
+                                />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Price Change 24H"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/twentyfourHour"
+                                android:text="-"
+                                android:textStyle="bold"
+                                android:textSize="20sp"
+                                android:paddingTop="10dp"
+                                />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Price Change 7D"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/sevenDay"
+                                android:text="-"
+                                android:textStyle="bold"
+                                android:textSize="20sp"
+                                android:paddingTop="10dp"
+                                />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg2">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="400dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="4dp"
+                    app:cardCornerRadius="10dp"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="center_vertical"
+                            android:text=" ORDER TYPE"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            android:background="#a6a6a6"/>
+                        <Spinner
+                            android:id="@+id/spinner1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            />
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/bg2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/white"
+                    >
+
+
+                    <EditText
+                        android:id="@+id/amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:textSize="25dp"
+                        android:hint="0.00"
+                        android:autofillHints="0.00"
+                        android:textAlignment="center"
+                        android:textColorHint="@color/white"
+                        android:textColor="@color/white"
+                        android:background="@drawable/bg2"
+                        android:layout_gravity="center_horizontal"
+                        android:textStyle="bold"/>
+                </LinearLayout>
 
 
 
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    >
+                    <Button
+                        android:id="@+id/btn_submit"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:backgroundTint="@color/white"
+                        android:text="Submit"
+                        android:fontFamily="@font/drystick_bold"
+                        android:textColor="@color/black"
+
+
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
 

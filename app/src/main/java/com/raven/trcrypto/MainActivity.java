@@ -4,6 +4,7 @@ import androidx.annotation.LongDef;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -14,6 +15,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     private FirebaseUser user;
     private DatabaseReference reference;
+    private CardView wall;
     private String userID;
     private RecyclerView.RecyclerListener listener;
     private TextView digit;
@@ -64,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         digit = findViewById(R.id.digit);
+        wall=findViewById(R.id.wallete);
+        user= FirebaseAuth.getInstance().getCurrentUser();
+        reference= FirebaseDatabase.getInstance().getReference("Users");
+        userID=user.getUid();
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -87,6 +94,15 @@ public class MainActivity extends AppCompatActivity {
         });
         recyclerView=(RecyclerView)findViewById(R.id.coin_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        wall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MainActivity.this,WalletActivity.class);
+                startActivity(myIntent);
+
+            }
+        });
+
         setupAdapter();
 
     }
@@ -159,9 +175,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void loadBalance(){
-        user= FirebaseAuth.getInstance().getCurrentUser();
-        reference= FirebaseDatabase.getInstance().getReference("Users");
-        userID=user.getUid();
+
         swipeRefreshLayout.setRefreshing(true);
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -189,9 +203,6 @@ public class MainActivity extends AppCompatActivity {
                     });
                     if(swipeRefreshLayout.isRefreshing())
                         swipeRefreshLayout.setRefreshing(false);
-
-
-
                 }
             }
 
