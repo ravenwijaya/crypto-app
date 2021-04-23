@@ -95,6 +95,11 @@ public class MainActivity extends AppCompatActivity {
                 loadFirst10coin(0);
                 loadBalance();
                 setupAdapter();
+                Intent i = new Intent(MainActivity.this, MainActivity.class);
+                finish();
+                overridePendingTransition(0, 0);
+                startActivity(i);
+                overridePendingTransition(0, 0);
             }
         });
         recyclerView=(RecyclerView)findViewById(R.id.coin_recycler_view);
@@ -129,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

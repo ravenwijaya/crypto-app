@@ -50,7 +50,7 @@ public class WithdrawActivity extends AppCompatActivity {
         amount=findViewById(R.id.amount);
         wd=findViewById(R.id.withdraw);
         Toast.makeText(this, "Tereksekusi", Toast.LENGTH_SHORT).show();
-        Log.e("mencoba","ini saya");
+       // Log.e("mencoba","ini saya");
         wd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,12 +58,13 @@ public class WithdrawActivity extends AppCompatActivity {
                 if (amounts.isEmpty()){
                     amounts="0.00";
                 }
-                Log.e("tereksekusi", "click on withdraww");
+              //  Log.e("tereksekusi", "click on withdraww");
                 Toast.makeText(WithdrawActivity.this,"mencoba",Toast.LENGTH_SHORT).show();
                 updatebalance(amounts);
             }
         });
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -79,7 +80,6 @@ public class WithdrawActivity extends AppCompatActivity {
     public void updatebalance(String amounte){
         user= FirebaseAuth.getInstance().getCurrentUser();
         reference= FirebaseDatabase.getInstance().getReference("Users");
-        Log.d("eee", "updatebalance: "+userID);
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

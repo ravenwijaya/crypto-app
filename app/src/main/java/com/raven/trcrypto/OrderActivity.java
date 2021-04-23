@@ -156,46 +156,64 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                                             String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
                                             reference.child(walletid).child("rp").setValue(rpnow);
                                             reference.child(walletid).child("btc").setValue(total);
+                                            Toast.makeText(OrderActivity.this, "success", Toast.LENGTH_SHORT).show();
+
                                         } else if (symbol.equals("dogecoin")) {
                                             String total = String.valueOf(Double.valueOf(wallet.getDoge()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
                                             String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
                                             reference.child(walletid).child("rp").setValue(rpnow);
                                             reference.child(walletid).child("doge").setValue(total);
+                                            Toast.makeText(OrderActivity.this, "success", Toast.LENGTH_SHORT).show();
+
                                         } else if (symbol.equals("cardano")) {
                                             String total = String.valueOf(Double.valueOf(wallet.getAda()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
                                             String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
                                             reference.child(walletid).child("rp").setValue(rpnow);
                                             reference.child(walletid).child("ada").setValue(total);
+                                            Toast.makeText(OrderActivity.this, "success", Toast.LENGTH_SHORT).show();
+
                                         } else if (symbol.equals("uniswap")) {
                                             String total = String.valueOf(Double.valueOf(wallet.getUni()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
                                             String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
                                             reference.child(walletid).child("rp").setValue(rpnow);
                                             reference.child(walletid).child("uni").setValue(total);
+                                            Toast.makeText(OrderActivity.this, "success", Toast.LENGTH_SHORT).show();
+
                                         } else if (symbol.equals("chainlink")) {
                                             String total = String.valueOf(Double.valueOf(wallet.getLink()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
                                             String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
                                             reference.child(walletid).child("rp").setValue(rpnow);
                                             reference.child(walletid).child("link").setValue(total);
+                                            Toast.makeText(OrderActivity.this, "success", Toast.LENGTH_SHORT).show();
+
                                         } else if (symbol.equals("aave")) {
                                             String total = String.valueOf(Double.valueOf(wallet.getAave()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
                                             String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
                                             reference.child(walletid).child("rp").setValue(rpnow);
                                             reference.child(walletid).child("aave").setValue(total);
+                                            Toast.makeText(OrderActivity.this, "success", Toast.LENGTH_SHORT).show();
+
                                         } else if (symbol.equals("thorchain")) {
                                             String total = String.valueOf(Double.valueOf(wallet.getRune()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
                                             String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
                                             reference.child(walletid).child("rp").setValue(rpnow);
                                             reference.child(walletid).child("rune").setValue(total);
+                                            Toast.makeText(OrderActivity.this, "success", Toast.LENGTH_SHORT).show();
+
                                         } else if (symbol.equals("sushi")) {
                                             String total = String.valueOf(Double.valueOf(wallet.getSushi()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
                                             String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
                                             reference.child(walletid).child("rp").setValue(rpnow);
                                             reference.child(walletid).child("sushi").setValue(total);
+                                            Toast.makeText(OrderActivity.this, "success", Toast.LENGTH_SHORT).show();
+
                                         } else if (symbol.equals("polkadot")) {
                                             String total = String.valueOf(Double.valueOf(wallet.getDot()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
                                             String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
                                             reference.child(walletid).child("rp").setValue(rpnow);
                                             reference.child(walletid).child("dot").setValue(total);
+                                            Toast.makeText(OrderActivity.this, "success", Toast.LENGTH_SHORT).show();
+
                                         }
                                     } else {
                                         Toast.makeText(OrderActivity.this, "Insiffucient Usd Balance", Toast.LENGTH_SHORT).show();
@@ -211,6 +229,8 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                                             String rp=String.valueOf(Double.valueOf(wallet.getRp())+(Double.valueOf(amounts)*Double.valueOf(pricenow)));
                                             reference.child(walletid).child("rp").setValue(rp);
                                             reference.child(walletid).child("btc").setValue(total);
+                                            Toast.makeText(OrderActivity.this, "success", Toast.LENGTH_SHORT).show();
+
                                         }
                                     } else if (symbol.equals("dogecoin")) {
                                         if (Double.valueOf(amounts)<=Double.valueOf(wallet.getDoge())) {
@@ -218,6 +238,8 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                                             String rp=String.valueOf(Double.valueOf(wallet.getRp())+(Double.valueOf(amounts)*Double.valueOf(pricenow)));
                                             reference.child(walletid).child("rp").setValue(rp);
                                             reference.child(walletid).child("doge").setValue(total);
+                                            Toast.makeText(OrderActivity.this, "success", Toast.LENGTH_SHORT).show();
+
                                         }
                                     } else if (symbol.equals("cardano")) {
                                         if (Double.valueOf(amounts)<=Double.valueOf(wallet.getAda())  ) {
@@ -225,6 +247,9 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                                             String rp=String.valueOf(Double.valueOf(wallet.getRp())+(Double.valueOf(amounts)*Double.valueOf(pricenow)));
                                             reference.child(walletid).child("rp").setValue(rp);
                                             reference.child(walletid).child("ada").setValue(total);
+                                            Toast.makeText(OrderActivity.this, "success", Toast.LENGTH_SHORT).show();
+
+
                                         }
                                     } else if (symbol.equals("uniswap")) {
                                         if ( Double.valueOf(amounts)<=Double.valueOf(wallet.getUni()) ) {
@@ -232,6 +257,8 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                                             String rp=String.valueOf(Double.valueOf(wallet.getRp())+(Double.valueOf(amounts)*Double.valueOf(pricenow)));
                                             reference.child(walletid).child("rp").setValue(rp);
                                             reference.child(walletid).child("uni").setValue(total);
+                                            Toast.makeText(OrderActivity.this, "success", Toast.LENGTH_SHORT).show();
+
                                         }
                                     } else if (symbol.equals("chainlink")) {
                                         if (Double.valueOf(amounts)<=Double.valueOf(wallet.getLink())) {
@@ -239,6 +266,8 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                                             String rp=String.valueOf(Double.valueOf(wallet.getRp())+(Double.valueOf(amounts)*Double.valueOf(pricenow)));
                                             reference.child(walletid).child("rp").setValue(rp);
                                             reference.child(walletid).child("link").setValue(total);
+                                            Toast.makeText(OrderActivity.this, "success", Toast.LENGTH_SHORT).show();
+
                                         }
                                     } else if (symbol.equals("aave")) {
                                         if ( Double.valueOf(amounts)<=Double.valueOf(wallet.getAave()) ) {
@@ -246,6 +275,8 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                                             String rp=String.valueOf(Double.valueOf(wallet.getRp())+(Double.valueOf(amounts)*Double.valueOf(pricenow)));
                                             reference.child(walletid).child("rp").setValue(rp);
                                             reference.child(walletid).child("aave").setValue(total);
+                                            Toast.makeText(OrderActivity.this, "success", Toast.LENGTH_SHORT).show();
+
                                         }
                                     } else if (symbol.equals("thorchain")) {
                                         if (Double.valueOf(amounts)<=Double.valueOf(wallet.getRune()) ) {
@@ -253,6 +284,8 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                                             String rp=String.valueOf(Double.valueOf(wallet.getRp())+(Double.valueOf(amounts)*Double.valueOf(pricenow)));
                                             reference.child(walletid).child("rp").setValue(rp);
                                             reference.child(walletid).child("rune").setValue(total);
+                                            Toast.makeText(OrderActivity.this, "success", Toast.LENGTH_SHORT).show();
+
                                         }
                                     } else if (symbol.equals("sushi")) {
                                         if ( Double.valueOf(amounts)<=Double.valueOf(wallet.getSushi())) {
@@ -260,6 +293,8 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                                             String rp=String.valueOf(Double.valueOf(wallet.getRp())+(Double.valueOf(amounts)*Double.valueOf(pricenow)));
                                             reference.child(walletid).child("rp").setValue(rp);
                                             reference.child(walletid).child("sushi").setValue(total);
+                                            Toast.makeText(OrderActivity.this, "success", Toast.LENGTH_SHORT).show();
+
                                         }
                                     } else if (symbol.equals("polkadot")) {
                                         if (Double.valueOf(amounts)<=Double.valueOf(wallet.getDot())) {
@@ -267,6 +302,8 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                                             String rp=String.valueOf(Double.valueOf(wallet.getRp())+(Double.valueOf(amounts)*Double.valueOf(pricenow)));
                                             reference.child(walletid).child("rp").setValue(rp);
                                             reference.child(walletid).child("dot").setValue(total);
+                                            Toast.makeText(OrderActivity.this, "success", Toast.LENGTH_SHORT).show();
+
                                         }
                                     }
                                 }
