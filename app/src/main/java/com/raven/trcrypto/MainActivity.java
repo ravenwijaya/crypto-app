@@ -132,15 +132,17 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected( MenuItem item) {
         int id=item.getItemId();
         if(id==R.id.account){
+            startActivity(new Intent(MainActivity.this , ProfileActivity.class));
             Toast.makeText(getApplicationContext(),"You Click Account",Toast.LENGTH_SHORT).show();
-        }else if(id==R.id.logout){
-            SharedPreferences.Editor editor=sharedPreferences.edit();
-            editor.clear();
-            editor.commit();
-            Toast.makeText(MainActivity.this,"Log out successfull",Toast.LENGTH_SHORT).show();
-            finish();
-            startActivity(new Intent(MainActivity.this , SigninActivity.class));
         }
+//        else if(id==R.id.logout){
+//            SharedPreferences.Editor editor=sharedPreferences.edit();
+//            editor.clear();
+//            editor.commit();
+//            Toast.makeText(MainActivity.this,"Log out successfull",Toast.LENGTH_SHORT).show();
+//            finish();
+//            startActivity(new Intent(MainActivity.this , SigninActivity.class));
+//        }
         return super.onOptionsItemSelected(item);
     }
 
