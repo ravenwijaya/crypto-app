@@ -19,7 +19,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,7 +40,6 @@ public class deposit2 extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Intent intent=getIntent();
         userID=intent.getStringExtra("uid");
-      //  Log.d("asdd", "onCreate: "+userID);
         mActionBar=getSupportActionBar();
         mActionBar.setDisplayHomeAsUpEnabled(true);
         amount=findViewById(R.id.amountss);
@@ -66,14 +64,12 @@ public class deposit2 extends AppCompatActivity {
     public void updatebalance(String amounte){
         user= FirebaseAuth.getInstance().getCurrentUser();
         reference= FirebaseDatabase.getInstance().getReference("Users");
-        Log.d("eee", "updatebalance: "+userID);
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User userProfile=snapshot.getValue(User.class);
                 if(userProfile!=null){
                     String walletid=userProfile.getWalletid();
-                  //  user= FirebaseAuth.getInstance().getCurrentUser();
                     reference= FirebaseDatabase.getInstance().getReference("Wallets");
                     reference.child(walletid).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -81,6 +77,7 @@ public class deposit2 extends AppCompatActivity {
                             Wallet wallet=snapshot.getValue(Wallet.class);
                             if(wallet!=null){
                                 reference.child(walletid).child("rp").setValue(String.valueOf(Double.valueOf(wallet.getRp())+Double.valueOf(amounte)));
+                                Toast.makeText(deposit2.this, "Success", Toast.LENGTH_SHORT).show();
 
                             }
                         }

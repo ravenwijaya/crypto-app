@@ -16,7 +16,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -114,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent myIntent = new Intent(MainActivity.this,deposit1.class);
                 myIntent.putExtra("uid",userID);
-                Log.d("qq", "onClick: userID"+userID);
                 startActivity(myIntent);
 
             }
