@@ -112,6 +112,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(MainActivity.this,deposit1.class);
+                myIntent.putExtra("uid",userID);
+                Log.d("qq", "onClick: userID"+userID);
                 startActivity(myIntent);
 
             }

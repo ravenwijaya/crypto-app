@@ -21,13 +21,22 @@
             />
 
     </com.google.android.material.appbar.AppBarLayout>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_to_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.raven.trcrypto.ProfileActivity">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="405dp">
+        android:layout_height="300dp">
         <LinearLayout
             android:background="@drawable/gradientbackground"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="300dp"
             android:orientation="vertical">
             <ImageView
                 android:layout_marginTop="45dp"
@@ -54,7 +63,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center"
-        android:layout_marginTop="45dp">
+        android:layout_marginTop="15dp">
         <LinearLayout
             android:orientation="horizontal"
             android:paddingLeft="25dp"
@@ -85,5 +94,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Log Out"/>
+        </LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
 
 </LinearLayout>

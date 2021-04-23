@@ -28,6 +28,7 @@ public class ProfileActivity extends AppCompatActivity {
     private FirebaseUser user;
     private DatabaseReference reference;
     SharedPreferences sharedPreferences;
+    SwipeRefreshLayout swipeRefreshLayout;
     private static final String SHARED_PREF_NAME="mypref";
     TextView email,name;
     Button logout;
@@ -60,6 +61,22 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
+        swipeRefreshLayout=(SwipeRefreshLayout) findViewById(R.id.swipe_to_refresh);
+        swipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                loaduser();
+            }
+        });
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                loaduser();
+
+            }
+        });
+
+
 
     }
     private void loaduser(){
@@ -73,6 +90,7 @@ public class ProfileActivity extends AppCompatActivity {
                 if(userProfile!=null){
                     email.setText(userProfile.getEmail());
                     name.setText(userProfile.getFullname());
+                    swipeRefreshLayout.setRefreshing(false);
 
                    }
             }
