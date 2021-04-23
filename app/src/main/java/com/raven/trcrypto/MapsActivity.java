@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -15,6 +16,7 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.Manifest;
@@ -23,6 +25,7 @@ import android.util.Log;
 
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -42,6 +45,7 @@ import com.google.android.gms.tasks.Task;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.ExecutionException;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
@@ -66,11 +70,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
         lokasi = findViewById(R.id.lokasiku);
-
-
-
+        Log.e("Tereksekusi", "onCreate");
     }
 
     @Override
@@ -91,58 +92,77 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 &&
                 ActivityCompat.checkSelfPermission(MapsActivity.this,
                         Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+
+            ActivityCompat.requestPermissions(MapsActivity.this, new String[]{
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
 
         } else {
             googleMap.setMyLocationEnabled(true);
             statusCheck();
-            getloc();
+            //getloc();
         }
+        Log.e("Tereksekusi", "onmapready");
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
+        Log.e("tereksekusi", Integer.toString(grantResults.length));
+
         switch (requestCode) {
             case 1: {
-
-                // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-                    // permission was granted, yay! Do the
-                    // contacts-related task you need to do.
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED&& grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this,"Akses diizinkan",Toast.LENGTH_SHORT).show();
+                    statusCheck();
                 } else {
-
-                    // permission denied, boo! Disable the
-                    // functionality that depends on this permission.
-                    //Toast.makeText(MainActivity.this, "Permission denied to read your External storage", Toast.LENGTH_SHORT).show();
+                    onBackPressed();
+                    Toast.makeText(this,"Akses tidak diizinkan",Toast.LENGTH_SHORT).show();
                 }
                 return;
             }
         }
     }
 
+    @SuppressLint("MissingPermission")
     public void getloc() {
-        FLPC = LocationServices.getFusedLocationProviderClient(this);
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {};
+        LocationManager loma = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        loma.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 600000, 0, new LocationListener() {
+            @Override
+            public void onLocationChanged(@NonNull Location location) {
+                if(location!=null){
 
-        FLPC.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+                    addmark(location.getLatitude(),location.getLongitude());
+                }
+            }
+
+            @Override
+            public void onProviderDisabled(@NonNull String provider) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(@NonNull String provider) {
+
+            }
+        });
+        /*
+        FLPC = LocationServices.getFusedLocationProviderClient(this);
+        FLPC.getLastLocation().addOnSuccessListener(this,new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
                 if (location != null) {
-                    try {
-                        Geocoder gc = new Geocoder(MapsActivity.this, Locale.getDefault());
-                        List<Address> alamat = gc.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                        addmark(location.getLatitude(), location.getLongitude());
-                        Log.e("Executed", "tereksekusi");
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    Log.e("tereksekusi", "Lokasi tidak null");
+                    addmark(location.getLatitude(), location.getLongitude());
+                    Log.e("tereksekusi", "Berhasil");
 
-                    }
+                }else{
+                    Log.e("tereksekusi", "Lokasi null");
                 }
             }
         });
+        */
         /*
             @Override
             public void onComplete(@NonNull Task<android.location.Location> task) {
@@ -167,19 +187,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             buildAlertMessageNoGps();
-
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        final LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
-        if (manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+        }else{
             getloc();
+            Toast.makeText(this,"GPS is turned on!",Toast.LENGTH_SHORT).show();
         }
     }
+
 
     private void buildAlertMessageNoGps() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -187,16 +200,36 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(final DialogInterface dialog, final int id) {
-                        startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                        startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS),1);
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     public void onClick(final DialogInterface dialog, final int id) {
+                        onBackPressed();
                         dialog.cancel();
                     }
                 });
         final AlertDialog alert = builder.create();
         alert.show();
+    }
+
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+        if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            buildAlertMessageNoGps();
+        }else{
+            /*Intent i = new Intent(this,MapsActivity.class);
+            finish();
+            startActivity(i);*/
+            getloc();
+            Toast.makeText(this,"GPS is turned on!",Toast.LENGTH_SHORT).show();
+        }
     }
 
 
@@ -225,19 +258,23 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         String builder = "";
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
         try {
+            Log.e("tereksekusi", "cobak list alamat geocoder");
             List<Address> alamat = geocoder.getFromLocation(LATITUDE, LONGITUDE, 1);
             if (alamat != null) {
+                Log.e("tereksekusi", "alamat tidak kosong");
                 Address returnedAddress = alamat.get(0);
                 StringBuilder strReturnedAddress = new StringBuilder();
-
                 for (int i = 0; i <= returnedAddress.getMaxAddressLineIndex(); i++) {
                     strReturnedAddress.append(returnedAddress.getAddressLine(i)).append("\n");
                 }
                 builder = strReturnedAddress.toString();
             } else {
+                Log.e("tereksekusi", "alamat kosong jarene");
             }
         } catch (Exception e) {
             e.printStackTrace();
+
+            Log.e("tereksekusi", "koq error");
 
         }
         return builder;
