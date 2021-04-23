@@ -48,10 +48,6 @@ import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
-    String felixsssss;
-    String felixsssaaassg;
-    String felixssssq22s;
-    String felixsssaaa2ssg;
     private GoogleMap mMap;
     private TextView lokasi;
     private ActionBar mActionBar;
