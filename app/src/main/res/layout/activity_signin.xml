@@ -19,7 +19,7 @@
         android:id="@+id/view1"
         android:layout_width="0dp"
         android:layout_height="100dp"
-        android:background="#000b76"
+        android:background="#0099ff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,45 +33,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view1" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/view1"
-        app:layout_constraintTop_toTopOf="@+id/view1"
-        android:src="@drawable/logo" />
-
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="20dp"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="29dp"
         android:fontFamily="@font/font2"
         android:text="@string/app_name_upper"
         android:textColor="#ffffff"
-        android:textSize="30sp"
+        android:textSize="40dp"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
+        android:layout_marginStart="20dp"
         android:layout_marginLeft="13dp"
-        android:layout_marginTop="8dp"
         android:fontFamily="@font/drystick_regular"
         android:text="@string/deskripsi"
         android:textColor="#ffffff"
-        android:textSize="18sp"
+        android:textSize="30dp"
         app:layout_constraintStart_toStartOf="@+id/view1"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        tools:layout_editor_absoluteY="60dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/emailsignin"
@@ -136,34 +125,22 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/round_button"
-        android:text="GO MAPS"
+        android:text="Set your sign in location"
         android:fontFamily="@font/drystick_bold"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textviewsignin" />
 
-    <Button
-        android:id="@+id/godeposit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/round_button"
-        android:text="GO WITHDRAW"
-        android:fontFamily="@font/drystick_bold"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gomaps" />
 
     <TextView
         android:id="@+id/textviewsignin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Already Registered? Sign up"
+        android:text="New User? Register Now"
+        android:textSize="20dp"
+        android:textColor="#0099ff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_signin" />

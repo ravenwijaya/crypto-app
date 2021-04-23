@@ -39,7 +39,7 @@ public class SigninActivity extends AppCompatActivity {
         signInBtn = findViewById(R.id.btn_signin);
         mTextView = findViewById(R.id.textviewsignin);
         gomaps = findViewById(R.id.gomaps);
-        godepo = findViewById(R.id.godeposit);
+
         sharedPreferences=getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
         String email=sharedPreferences.getString(KEY_EMAIL,null);
         if(email!=null){
@@ -73,12 +73,7 @@ public class SigninActivity extends AppCompatActivity {
             }
         });
 
-        godepo.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SigninActivity.this, WithdrawActivity.class));
-            }
-        });
+
         //
 
     }
