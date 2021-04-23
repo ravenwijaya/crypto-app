@@ -139,11 +139,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="New User? Register Now"
-        android:textSize="20dp"
-        android:textColor="#0099ff"
+        android:textSize="16dp"
+        android:textColor="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_signin" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
