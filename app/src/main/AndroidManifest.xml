@@ -15,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TRCRYPTO"
         android:usesCleartextTraffic="true">
-        <activity android:name=".profile"></activity>
+        <activity android:name=".ProfileActivity"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".profile" />
         <activity
             android:name=".deposit2"
             android:label="@string/title_activity_deposit2"

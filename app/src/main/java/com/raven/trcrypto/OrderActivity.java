@@ -74,6 +74,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
 
         Toolbar toolbar=findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
+
         submitBtn=findViewById(R.id.btn_submit);
         mActionBar=getSupportActionBar();
         mActionBar.setDisplayHomeAsUpEnabled(true);
