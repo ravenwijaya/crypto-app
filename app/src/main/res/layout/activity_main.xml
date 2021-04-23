@@ -93,6 +93,7 @@
                     >
 //card1
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/deposit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_row="0"
@@ -111,16 +112,17 @@
                             tools:ignore="VectorDrawableCompat" />
 
 
-                        <Button
-                            android:id="@+id/go_to_deposit1"
-                            android:layout_width="57dp"
-                            android:layout_height="35dp"
-                            android:layout_marginLeft="35dp"
-                            android:layout_marginTop="2dp"
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:text="Deposit"
-                            android:fontFamily="@font/drystick_bold"
+                            android:layout_marginLeft="35dp"
+                            android:layout_marginTop="6dp"
+                            android:textSize="15dp"
                             android:textColor="@color/white"
-                            android:textSize="5dp" />
+
+                            />
+
 
 
                     </androidx.cardview.widget.CardView>

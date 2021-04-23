@@ -55,15 +55,14 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     private FirebaseUser user;
     private DatabaseReference reference;
-    private CardView wall;
+    private CardView wall,depo;
     private String userID;
     private RecyclerView.RecyclerListener listener;
     private TextView digit;
     private static final String SHARED_PREF_NAME="mypref";
 
 
-    //nambah button
-    private Button depo1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,10 +70,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //deposit
-        depo1 = findViewById(R.id.go_to_deposit1);
 
         digit = findViewById(R.id.digit);
         wall=findViewById(R.id.wallete);
+        depo=findViewById(R.id.deposit);
         user= FirebaseAuth.getInstance().getCurrentUser();
         reference= FirebaseDatabase.getInstance().getReference("Users");
         userID=user.getUid();
@@ -109,16 +108,17 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        depo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MainActivity.this,deposit1.class);
+                startActivity(myIntent);
+
+            }
+        });
 
         setupAdapter();
 
-        //deposit1
-        depo1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, deposit1.class));
-            }
-        });
 
     }
 
@@ -213,7 +213,6 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
                             Toast.makeText(MainActivity.this, "ERROR  !!", Toast.LENGTH_SHORT).show();
-
                         }
                     });
                     if(swipeRefreshLayout.isRefreshing())
@@ -224,8 +223,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(MainActivity.this, "ERROR  !!", Toast.LENGTH_SHORT).show();
-
-
             }
         });
         if(swipeRefreshLayout.isRefreshing())

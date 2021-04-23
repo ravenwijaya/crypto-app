@@ -18,8 +18,10 @@
         <activity
             android:name=".deposit2"
             android:label="@string/title_activity_deposit2"
-            android:theme="@style/Theme.TRCRYPTO.NoActionBar"></activity>
-        <activity android:name=".deposit1" />
+
+            android:parentActivityName=".deposit1"></activity>
+        <activity android:name=".deposit1"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".WalletActivity"
             android:parentActivityName=".MainActivity" />
