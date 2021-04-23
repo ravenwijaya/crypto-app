@@ -55,13 +55,11 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     private FirebaseUser user;
     private DatabaseReference reference;
-    private CardView wall,depo;
+    private CardView wall,depo,wd;
     private String userID;
     private RecyclerView.RecyclerListener listener;
     private TextView digit;
     private static final String SHARED_PREF_NAME="mypref";
-
-
 
 
     @Override
@@ -74,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         digit = findViewById(R.id.digit);
         wall=findViewById(R.id.wallete);
         depo=findViewById(R.id.deposit);
+        wd=findViewById(R.id.withdraw);
         user= FirebaseAuth.getInstance().getCurrentUser();
         reference= FirebaseDatabase.getInstance().getReference("Users");
         userID=user.getUid();
@@ -106,6 +105,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent myIntent = new Intent(MainActivity.this,WalletActivity.class);
                 startActivity(myIntent);
 
+            }
+        });
+        wd.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MainActivity.this, WithdrawActivity.class);
+                myIntent.putExtra("uid",userID);
+                startActivity(myIntent);
             }
         });
         depo.setOnClickListener(new View.OnClickListener() {
