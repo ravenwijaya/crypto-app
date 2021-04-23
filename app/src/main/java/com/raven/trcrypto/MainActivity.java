@@ -47,6 +47,7 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
     String felixsss;
+    String samu7el;
     List<CoinModel>items=new ArrayList<>();
     CoinAdapter adapter;
     RecyclerView recyclerView;
