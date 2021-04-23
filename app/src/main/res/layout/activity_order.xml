@@ -24,7 +24,7 @@
         android:id="@+id/swipe_to_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.raven.trcrypto.MainActivity">
+        tools:context="com.raven.trcrypto.OrderActivity">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
