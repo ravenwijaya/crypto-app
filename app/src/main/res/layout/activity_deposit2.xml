@@ -101,7 +101,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-                            android:text="672018053"
+                            android:text="9889688863044772"
                             android:textColor="#454545"
                             android:textSize="10sp" />
 
@@ -109,7 +109,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-                            android:text="Samuel Nugraha"
+                            android:text="PT. Cryptx. Tbk"
                             android:textColor="#454545"
                             android:textSize="14sp" />
                     </LinearLayout>
@@ -238,7 +238,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Samuel Nugraha"
+                            android:text="PT. Cryptx . Tbk"
                             android:textColor="@color/black"
                             android:textSize="15dp"
                             android:textStyle="bold"
