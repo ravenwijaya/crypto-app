@@ -241,7 +241,53 @@
                             android:text="Samuel Nugraha"
                             android:textColor="@color/black"
                             android:textSize="15dp"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold"
+                            android:layout_marginBottom="20dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Input Amount"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="10dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Deposit Amount (USD)"
+                            android:textColor="@color/gray"
+                            android:textSize="10dp"
+                            android:layout_marginBottom="20dp"
+                            />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_weight="1"
+                            android:hint="0.00"
+                            android:inputType="numberDecimal" />
+
+                        <Button
+                            android:id="@+id/btn_deposit2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="8dp"
+                            android:layout_weight="4"
+                            android:text="Send"
+                            android:textColor="#FFFFFF"
+                            android:textSize="10sp" />
+
 
                     </LinearLayout>
 

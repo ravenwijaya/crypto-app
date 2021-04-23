@@ -15,13 +15,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TRCRYPTO"
         android:usesCleartextTraffic="true">
+        <activity android:name=".profile"></activity>
         <activity
             android:name=".deposit2"
             android:label="@string/title_activity_deposit2"
-
-            android:parentActivityName=".deposit1"></activity>
-        <activity android:name=".deposit1"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".deposit1" />
+        <activity
+            android:name=".deposit1"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".WalletActivity"
             android:parentActivityName=".MainActivity" />
