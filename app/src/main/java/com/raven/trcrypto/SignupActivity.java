@@ -60,8 +60,6 @@ public class SignupActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 createUser();
-
-
             }
         });
 
@@ -90,6 +88,7 @@ public class SignupActivity extends AppCompatActivity{
             mName.requestFocus();
             return;
         }
+
         mAuth.createUserWithEmailAndPassword(email,pass)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 

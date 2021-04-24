@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +23,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.raven.trcrypto.Adapter.RecycleBankAdapter;
+import com.raven.trcrypto.Model.bank_account;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class WithdrawActivity extends AppCompatActivity implements AddBankDialog.AddBankDialogListener{
     ActionBar mActionBar;
@@ -31,7 +38,12 @@ public class WithdrawActivity extends AppCompatActivity implements AddBankDialog
     private FirebaseUser user;
     private DatabaseReference reference;
 
-
+    /*
+        adapter of recycle view bank
+    */
+        RecyclerView bank;
+        RecycleBankAdapter rba;
+    ////
     @Override
     public void applytext(String acc_bank, String nama_bank, int pos) {
         Toast.makeText(WithdrawActivity.this, acc_bank + ", " + nama_bank + ", " + Integer.toString(pos), Toast.LENGTH_SHORT).show();
@@ -57,10 +69,27 @@ public class WithdrawActivity extends AppCompatActivity implements AddBankDialog
         getblnc = findViewById(R.id.getall);
         //Toast.makeText(this, "Tereksekusi", Toast.LENGTH_SHORT).show();
         addbank = findViewById(R.id.addbank);
+
+        //RECYCLE BANK ADAPTER
+            List<bank_account> akunbank = new ArrayList<>();
+            akunbank.add(new bank_account("Ong William Raven Wijaya", "672018070","1",false));
+            akunbank.add(new bank_account("Samuel Nugraha", "672018053","0",false));
+            akunbank.add(new bank_account("Felix Vicky Lugas Dewangga", "1234567890123456789012345678901234567890","2",false));
+            bank = findViewById(R.id.daftarbank);
+            bank.setLayoutManager(new LinearLayoutManager(this));
+            rba = new RecycleBankAdapter(this, akunbank);
+            bank.setAdapter(rba);
+            rba.setbankaccount(akunbank);
+        ///////////////////////////
         wd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String amounts=amount.getText().toString();
+                if(rba.getSelected()!=null){
+
+                }else{
+                    Toast.makeText(WithdrawActivity.this, "You're not selected your bank account to be transfered", Toast.LENGTH_SHORT).show();
+                }
                 if(amount.equals("")){
                     Toast.makeText(WithdrawActivity.this,"you have not filled in the amount to be withdrawn",Toast.LENGTH_SHORT).show();
                 }else{
