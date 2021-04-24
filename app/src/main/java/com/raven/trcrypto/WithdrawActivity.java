@@ -22,16 +22,20 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class WithdrawActivity extends AppCompatActivity {
+public class WithdrawActivity extends AppCompatActivity implements AddBankDialog.AddBankDialogListener{
     ActionBar mActionBar;
     EditText amount;
-    TextView balance;
+    TextView balance,addbank;
     Button wd,getblnc;
     String userID;
     private FirebaseUser user;
     private DatabaseReference reference;
 
 
+    @Override
+    public void applytext(String acc_bank, String nama_bank, int pos) {
+        Toast.makeText(WithdrawActivity.this, acc_bank + ", " + nama_bank + ", " + Integer.toString(pos), Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +55,8 @@ public class WithdrawActivity extends AppCompatActivity {
         amount=findViewById(R.id.amount);
         wd=findViewById(R.id.withdraw);
         getblnc = findViewById(R.id.getall);
-        Toast.makeText(this, "Tereksekusi", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Tereksekusi", Toast.LENGTH_SHORT).show();
+        addbank = findViewById(R.id.addbank);
         wd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,13 +72,25 @@ public class WithdrawActivity extends AppCompatActivity {
                 }
             }
         });
+
         getblnc.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 getallbalance();
             }
         });
+        addbank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addbank_dialog();
+                Toast.makeText(WithdrawActivity.this,"add bank",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
+    private void addbank_dialog(){
+        AddBankDialog abd = new AddBankDialog();
+        abd.show(getSupportFragmentManager(),"Dialog Add Bank");
+    };
 
     public void getallbalance(){
         String f = (String) balance.getText();

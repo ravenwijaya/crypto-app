@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp">
+    <ImageView
+        android:id="@+id/logo_bank"
+        android:layout_width="100dp"
+        android:layout_height="36dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_bca"/>
+
+    <TextView
+        android:id="@+id/n_bank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignBottom="@id/logo_bank"
+        android:layout_toEndOf="@id/logo_bank"
+        android:gravity="center_vertical|right"
+        android:text="PT Bank Central Asia .Tbk"
+        android:textSize="18sp" />
+</RelativeLayout>
