@@ -32,7 +32,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#000B76"
+            android:background="#0099ff"
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -59,6 +59,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/balance"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/drystick_bold"
@@ -148,12 +149,14 @@
                     android:hint="0.00"
                     android:inputType="numberDecimal" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/getall"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginRight="8dp"
-                    android:layout_weight="4"
-                    android:text="Send All"
+                    android:layout_weight="2"
+                    android:text="All Balance"
+                    android:background="#0099ff"
                     android:textColor="#FFFFFF"
                     android:textSize="10sp" />
             </LinearLayout>
@@ -546,13 +549,14 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/withdraw"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
+                android:background="@drawable/round_button"
                 android:textColor="#ffffff"
                 android:text="WITHDRAW"
                 />
