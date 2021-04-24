@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -164,16 +165,20 @@ public class WithdrawActivity extends AppCompatActivity {
                             Wallet wallet=snapshot.getValue(Wallet.class);
                             if(wallet!=null){
                                 Double walletrp = Double.parseDouble(getDecimalFormat(wallet.getRp()));
-                                if(walletrp - Double.valueOf(amounte) >= 0){
-                                    if(walletrp - Double.valueOf(amounte) == 0){
+                                Log.e("jumlah wallet anda",Double.toString(walletrp));
+                                if(Double.valueOf(amounte) >= 1.00){
+                                    if(walletrp - Double.valueOf(amounte) == 0) {
                                         reference.child(walletid).child("rp").setValue("0.00");
-                                    }else{
+                                        Toast.makeText(WithdrawActivity.this,"Withdraw success",Toast.LENGTH_SHORT).show();
+                                    }else if(walletrp - Double.valueOf(amounte) >= 0.00){
                                         reference.child(walletid).child("rp").setValue(String.valueOf(Double.valueOf(wallet.getRp())-Double.valueOf(amounte)));
+                                        Toast.makeText(WithdrawActivity.this,"Withdraw success",Toast.LENGTH_SHORT).show();
+                                    }else{
+                                        Toast.makeText(WithdrawActivity.this,"Insufficient amount to withdraw",Toast.LENGTH_SHORT).show();
                                     }
-                                    Toast.makeText(WithdrawActivity.this,"Withdraw success",Toast.LENGTH_SHORT).show();
                                     getBalance();
                                 }else{
-                                    Toast.makeText(WithdrawActivity.this,"Insufficient amount to withdraw",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(WithdrawActivity.this,"Minimum amount to withdraw $1.00",Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }
