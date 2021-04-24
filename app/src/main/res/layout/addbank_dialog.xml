@@ -4,18 +4,25 @@
     <Spinner
         android:id="@+id/bank"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
 
     <EditText
         android:id="@+id/bank_acc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Input Bank Account"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_below="@id/bank"/>
     <EditText
         android:id="@+id/bank_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Input Your name"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_below="@id/bank_acc"/>
 </RelativeLayout>

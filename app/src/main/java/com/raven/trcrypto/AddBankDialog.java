@@ -35,6 +35,7 @@ public class AddBankDialog extends AppCompatDialogFragment {
         builder
                 .setView(view)
                 .setTitle("Add bank account")
+                .setIcon(R.drawable.ic_baseline_texture_24)
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

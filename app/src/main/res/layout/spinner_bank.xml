@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relat"
     android:layout_width="match_parent" android:layout_height="wrap_content"
     android:layout_marginBottom="20dp">
     <ImageView
@@ -7,17 +8,21 @@
         android:layout_width="100dp"
         android:layout_height="36dp"
         android:adjustViewBounds="true"
+        android:layout_marginLeft="10dp"
         android:scaleType="fitXY"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:src="@drawable/ic_bca"/>
 
     <TextView
         android:id="@+id/n_bank"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginRight="10dp"
         android:layout_alignParentTop="true"
-        android:layout_alignBottom="@id/logo_bank"
         android:layout_toEndOf="@id/logo_bank"
+        android:layout_toRightOf="@id/logo_bank"
         android:gravity="center_vertical|right"
         android:text="PT Bank Central Asia .Tbk"
         android:textSize="18sp" />
-</RelativeLayout>
+</LinearLayout>

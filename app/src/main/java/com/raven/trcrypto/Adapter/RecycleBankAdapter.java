@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.raven.trcrypto.Model.bank_account;
 import com.raven.trcrypto.R;
+import com.raven.trcrypto.WithdrawActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -116,6 +118,7 @@ public class RecycleBankAdapter extends RecyclerView.Adapter<RecycleBankAdapter.
                     if(checkedposition!=getAdapterPosition()){
                         notifyItemChanged(checkedposition);
                         checkedposition = getAdapterPosition();
+                        //Toast.makeText(v.getContext(), "You're select :"+lba.get(checkedposition).getNama(), Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -123,7 +126,7 @@ public class RecycleBankAdapter extends RecyclerView.Adapter<RecycleBankAdapter.
         }
     }
     public bank_account getSelected(){
-        if(checkedposition!=1){
+        if(checkedposition!=-1){
             return lba.get(checkedposition);
         }
         return null;
