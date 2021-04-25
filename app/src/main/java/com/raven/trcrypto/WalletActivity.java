@@ -85,15 +85,15 @@ public class WalletActivity extends AppCompatActivity {
                             if(wallet!=null){
                                 String rp=wallet.getRp();
                                 usd.setText("$ "+getDecimalFormat(wallet.getRp()));
-                                aave.setText(getDecimalFormat(wallet.getAave()));
-                                ada.setText(getDecimalFormat(wallet.getAda()));
-                                btc.setText(getDecimalFormat(wallet.getBtc()));
-                                doge.setText(getDecimalFormat(wallet.getDoge()));
-                                dot.setText(getDecimalFormat(wallet.getDot()));
-                                link.setText(getDecimalFormat(wallet.getLink()));
-                                uni.setText(getDecimalFormat(wallet.getUni()));
-                                sushi.setText(getDecimalFormat(wallet.getSushi()));
-                                rune.setText(getDecimalFormat(wallet.getRune()));
+                                aave.setText(wallet.getAave());
+                                ada.setText(wallet.getAda());
+                                btc.setText(wallet.getBtc());
+                                doge.setText(wallet.getDoge());
+                                dot.setText(wallet.getDot());
+                                link.setText(wallet.getLink());
+                                uni.setText(wallet.getUni());
+                                sushi.setText(wallet.getSushi());
+                                rune.setText(wallet.getRune());
                                 swipeRefreshLayout.setRefreshing(false);
                             }
                         }
