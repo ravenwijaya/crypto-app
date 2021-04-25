@@ -20,6 +20,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.math.BigDecimal;
+
 public class WalletActivity extends AppCompatActivity {
     ActionBar mActionBar;
     String userID;
@@ -85,15 +87,15 @@ public class WalletActivity extends AppCompatActivity {
                             if(wallet!=null){
                                 String rp=wallet.getRp();
                                 usd.setText("$ "+getDecimalFormat(wallet.getRp()));
-                                aave.setText(wallet.getAave());
-                                ada.setText(wallet.getAda());
-                                btc.setText(wallet.getBtc());
-                                doge.setText(wallet.getDoge());
-                                dot.setText(wallet.getDot());
-                                link.setText(wallet.getLink());
-                                uni.setText(wallet.getUni());
-                                sushi.setText(wallet.getSushi());
-                                rune.setText(wallet.getRune());
+                                aave.setText(String.valueOf(BigDecimal.valueOf(Double.valueOf(wallet.getAave()))));
+                                ada.setText(String.valueOf(BigDecimal.valueOf(Double.valueOf(wallet.getAda()))));
+                                btc.setText(String.valueOf(BigDecimal.valueOf(Double.valueOf(wallet.getBtc()))));
+                                doge.setText(String.valueOf(BigDecimal.valueOf(Double.valueOf(wallet.getDoge()))));
+                                dot.setText(String.valueOf(BigDecimal.valueOf(Double.valueOf(wallet.getDot()))));
+                                link.setText(String.valueOf(BigDecimal.valueOf(Double.valueOf(wallet.getLink()))));
+                                uni.setText(String.valueOf(BigDecimal.valueOf(Double.valueOf(wallet.getUni()))));
+                                sushi.setText(String.valueOf(BigDecimal.valueOf(Double.valueOf(wallet.getSushi()))));
+                                rune.setText(String.valueOf(BigDecimal.valueOf(Double.valueOf(wallet.getRune()))));
                                 swipeRefreshLayout.setRefreshing(false);
                             }
                         }
