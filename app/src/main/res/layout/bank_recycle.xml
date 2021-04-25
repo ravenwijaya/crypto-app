@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
     <!-- letakan fragment disini-->
-    <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.cardview.widget.CardView
         android:id="@+id/pick_card_bank"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,47 +58,58 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/drystick_bold"
-                        android:text=""
-                        android:textColor="#000000"
-                        android:textSize="17sp" />
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/hapus_bank"
+                            android:layout_marginTop="2dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dip"
+                            android:text="DELETE"
+                            android:textColor="#ff0000"
+                            android:background="#fff"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="30dp"
+                            />
+                        <!--<TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/drystick_bold"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="#fff"
+                            android:textSize="17sp" />-->
 
-                    <TextView
-                        android:id="@+id/account_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="9889688863044772"
-                        android:textColor="#454545"
-                        android:textSize="10sp" />
+                        <TextView
+                            android:id="@+id/account_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="9889688863044772"
+                            android:textColor="#454545"
+                            android:textSize="10sp" />
 
-                    <TextView
-                        android:id="@+id/account_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="PT. Cryptx .Tbk"
-                        android:textColor="#454545"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layoutDirection="rtl"
-                    android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/account_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="PT. Cryptx .Tbk"
+                            android:textColor="#454545"
+                            android:textSize="14sp" />
+                    </LinearLayout>
 
                     <RadioButton
                         android:id="@+id/bank_dipilih"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
                         android:buttonTint="#ff0000"
                         android:enabled="false"
                         android:paddingTop="41dp" />
