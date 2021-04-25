@@ -94,9 +94,9 @@ public class MainActivity extends AppCompatActivity {
                 setupAdapter();
                 Intent i = new Intent(MainActivity.this, MainActivity.class);
                 finish();
-            //    overridePendingTransition(0, 0);
+                overridePendingTransition(0, 0);
                 startActivity(i);
-         //       overridePendingTransition(0, 0);
+                overridePendingTransition(0, 0);
             }
         });
         recyclerView=(RecyclerView)findViewById(R.id.coin_recycler_view);
