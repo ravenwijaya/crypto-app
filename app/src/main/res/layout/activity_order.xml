@@ -250,7 +250,8 @@
                         android:textColor="@color/white"
                         android:background="@drawable/bg2"
                         android:layout_gravity="center_horizontal"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold"
+                        android:inputType="numberDecimal" />
                 </LinearLayout>
 
 

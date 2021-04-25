@@ -50,10 +50,14 @@ public class deposit2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String amounts=amount.getText().toString();
-                if (amounts.isEmpty()){
-                    amounts="0.00";
-                }
+                if (amounts.equals("") || Double.valueOf(amounts)<=0) {
+                    amount.setError("Amount is Required");
+                    amount.requestFocus();
+                }else{
                     updatebalance(amounts);
+                }
+
+
 
 
             }
@@ -78,7 +82,6 @@ public class deposit2 extends AppCompatActivity {
                             if(wallet!=null){
                                 reference.child(walletid).child("rp").setValue(String.valueOf(Double.valueOf(wallet.getRp())+Double.valueOf(amounte)));
                                 Toast.makeText(deposit2.this, "Success", Toast.LENGTH_SHORT).show();
-
                             }
                         }
 

@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:theme="@style/ToolbarThemeOverlay"
-                app:title="Withdraw Cryptx"
+                app:title="Withdraw"
                 app:titleMarginStart="0dp" />
 
 <!--        </com.google.android.material.appbar.AppBarLayout>-->
@@ -284,33 +284,7 @@
                 android:textColor="#ffffff"
                 android:text="WITHDRAW"
                 />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:fontFamily="@font/font2"
-                android:gravity="center"
-                android:text="CRYPTX"
-                android:textColor="#164883"
-                android:textSize="30sp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/drystick_bold"
-                android:gravity="center"
-                android:text="x"
-                android:textSize="20sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/drystick_bold"
-                android:gravity="center"
-                android:text="WITHDRAW BALANCE"
-                android:layout_marginBottom="20dp"
-                android:textColor="#164883"
-                android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

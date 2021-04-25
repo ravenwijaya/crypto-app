@@ -72,22 +72,27 @@ public class SignupActivity extends AppCompatActivity{
         String walletid="";
 
 
-
+        if(name.isEmpty()){
+            mName.setError("Name is Required");
+            mName.requestFocus();
+            return;
+        }
         if(email.isEmpty()){
             mEmail.setError("Email is Required");
             mEmail.requestFocus();
             return;
         }
         if(pass.isEmpty()){
-            mPass.setError("Pass is Required");
+            mPass.setError("Passwords is Required");
             mPass.requestFocus();
             return;
         }
-        if(name.isEmpty()){
-            mName.setError("Name is Required");
-            mName.requestFocus();
+        if(pass.length()<=7){
+            mPass.setError("Passwords must be at least 10 characters");
+            mPass.requestFocus();
             return;
         }
+
 
         mAuth.createUserWithEmailAndPassword(email,pass)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {

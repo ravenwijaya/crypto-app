@@ -66,9 +66,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //deposit
-
         digit = findViewById(R.id.digit);
         wall=findViewById(R.id.wallete);
         depo=findViewById(R.id.deposit);
@@ -97,9 +94,9 @@ public class MainActivity extends AppCompatActivity {
                 setupAdapter();
                 Intent i = new Intent(MainActivity.this, MainActivity.class);
                 finish();
-                overridePendingTransition(0, 0);
+            //    overridePendingTransition(0, 0);
                 startActivity(i);
-                overridePendingTransition(0, 0);
+         //       overridePendingTransition(0, 0);
             }
         });
         recyclerView=(RecyclerView)findViewById(R.id.coin_recycler_view);

@@ -68,15 +68,12 @@ public class WithdrawActivity extends AppCompatActivity implements AddBankDialog
         amount = findViewById(R.id.amount);
         wd = findViewById(R.id.withdraw);
         getblnc = findViewById(R.id.getall);
-        //Toast.makeText(this, "Tereksekusi", Toast.LENGTH_SHORT).show();
+
         addbank = findViewById(R.id.addbank);
 
         //RECYCLE BANK ADAPTER
             List<bank_account> akunbank = new ArrayList<>();
-            //akunbank.add(new bank_account("Ong William Raven Wijaya", "672018070","1",false));
-            //akunbank.add(new bank_account("Samuel Nugraha", "672018053","0",false));
-            //akunbank.add(new bank_account("Felix Vicky Lugas Dewangga", "1234567890123456789012345678901234567890","2",false));
-            bank = findViewById(R.id.daftarbank);
+           bank = findViewById(R.id.daftarbank);
             bank.setLayoutManager(new LinearLayoutManager(this));
             rba = new RecycleBankAdapter(this, akunbank);
             bank.setAdapter(rba);
@@ -91,13 +88,11 @@ public class WithdrawActivity extends AppCompatActivity implements AddBankDialog
                 String amounts = amount.getText().toString();
                 try {
                     if (rba.getSelected() != null) {
-                        //Toast.makeText(WithdrawActivity.this, rba.getSelected().getNama(), Toast.LENGTH_SHORT).show();
-                        if (amount.equals("")) {
+                        if (amounts.equals("") || Double.valueOf(amounts)<=0) {
+                            amount.setError("Amount is Required");
+                            amount.requestFocus();
                             Toast.makeText(WithdrawActivity.this, "you have not filled in the amount to be withdrawn", Toast.LENGTH_SHORT).show();
                         } else {
-                            if (amounts.isEmpty()) {
-                                amounts = "0.00";
-                            }
                             Toast.makeText(WithdrawActivity.this, "Request to Withdraw", Toast.LENGTH_SHORT).show();
                             updatebalance(amounts);
                         }
@@ -216,7 +211,6 @@ public class WithdrawActivity extends AppCompatActivity implements AddBankDialog
                 User userProfile = snapshot.getValue(User.class);
                 if (userProfile != null) {
                     String walletid = userProfile.getWalletid();
-                    //  user= FirebaseAuth.getInstance().getCurrentUser();
                     reference = FirebaseDatabase.getInstance().getReference("Wallets");
                     reference.child(walletid).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override

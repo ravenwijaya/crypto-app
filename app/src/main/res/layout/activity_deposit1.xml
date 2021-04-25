@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:theme="@style/ToolbarThemeOverlay"
-        app:title="Deposit Rupiah"
+        app:title="Deposit"
         app:titleMarginStart="0dp"
 
         />

@@ -91,7 +91,12 @@ public class SigninActivity extends AppCompatActivity {
             return;
         }
         if(pass.isEmpty()){
-            mPass.setError("Pass is Required");
+            mPass.setError("Passwords is Required");
+            mPass.requestFocus();
+            return;
+        }
+        if(pass.length()<=7){
+            mPass.setError("Passwords must be at least 10 characters");
             mPass.requestFocus();
             return;
         }

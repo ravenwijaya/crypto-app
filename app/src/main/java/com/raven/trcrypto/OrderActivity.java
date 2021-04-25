@@ -98,13 +98,14 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
             public void onClick(View v) {
                 String text = spinner.getSelectedItem().toString();
                 String amounts=amount.getText().toString();
-                if (amounts.isEmpty()){
-                    amounts="0.00";
-                }
                 String pricenow=coin_price.getText().toString();
+                if (amounts.equals("") || Double.valueOf(amounts)<=0){
+                    Toast.makeText(OrderActivity.this, "amount required!", Toast.LENGTH_SHORT).show();
+                }else{
+                    order(text,amounts,pricenow);
+                }
 
 
-                order(text,amounts,pricenow);
             }
         });
         swipeRefreshLayout=(SwipeRefreshLayout) findViewById(R.id.swipe_to_refresh);
@@ -130,14 +131,12 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         user= FirebaseAuth.getInstance().getCurrentUser();
         reference= FirebaseDatabase.getInstance().getReference("Users");
         userID=user.getUid();
-        //  String walletid=reference.child(userID).child("walletid").toString();
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User userProfile=snapshot.getValue(User.class);
                 if(userProfile!=null){
                     String walletid=userProfile.getWalletid();
-                    //user= FirebaseAuth.getInstance().getCurrentUser();
                     reference= FirebaseDatabase.getInstance().getReference("Wallets");
                     reference.child(walletid).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -148,9 +147,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                                     if(Double.valueOf(amounts)<1.00){
                                         Toast.makeText(OrderActivity.this, "minimum transaction 1 Usd", Toast.LENGTH_SHORT).show();
                                     }
-
-
-                                    if ( Double.valueOf(amounts)<=Double.valueOf(wallet.getRp())&& Double.valueOf(amounts)>=1.00) {
+                                    if ( Double.valueOf(amounts)<=Double.valueOf(wallet.getRp()) && Double.valueOf(amounts)>=1.00) {
                                         if (symbol.equals("bitcoin")) {
                                             String total = String.valueOf(Double.valueOf(wallet.getBtc()) + (Double.valueOf(amounts) / Double.valueOf(pricenow)));
                                             String rpnow = String.valueOf(Double.valueOf(wallet.getRp()) - Double.valueOf(amounts));
@@ -220,7 +217,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                                     }
                                 }
                                 else if (typeorder.equals("Sell")) {
-                                    if(Double.valueOf(amounts)==0.00){
+                                    if(Double.valueOf(amounts)<=0){
                                         Toast.makeText(OrderActivity.this, "input amount ", Toast.LENGTH_SHORT).show();
                                     }
                                     if (symbol.equals("bitcoin")) {
