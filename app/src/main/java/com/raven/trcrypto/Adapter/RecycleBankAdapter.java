@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -61,6 +62,7 @@ public class RecycleBankAdapter extends RecyclerView.Adapter<RecycleBankAdapter.
         TextView acc,nama,namalogo;
         ImageView logo;
         RadioButton dipilih;
+        Button delete;
         CardView pick_card_bank;
 
         public ViewHolder(@NonNull View itemView) {
@@ -70,6 +72,7 @@ public class RecycleBankAdapter extends RecyclerView.Adapter<RecycleBankAdapter.
             logo  = itemView.findViewById(R.id.account_logo);
             namalogo = itemView.findViewById(R.id.namalogo);
             dipilih = itemView.findViewById(R.id.bank_dipilih);
+            delete = itemView.findViewById(R.id.hapus_bank);
             pick_card_bank = itemView.findViewById(R.id.pick_card_bank);
         }
 
@@ -120,6 +123,23 @@ public class RecycleBankAdapter extends RecyclerView.Adapter<RecycleBankAdapter.
                         checkedposition = getAdapterPosition();
                         //Toast.makeText(v.getContext(), "You're select :"+lba.get(checkedposition).getNama(), Toast.LENGTH_SHORT).show();
                     }
+                }
+            });
+            itemView.findViewById(R.id.bank_dipilih).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dipilih.setChecked(true);
+                    if(checkedposition!=getAdapterPosition()){
+                        notifyItemChanged(checkedposition);
+                        checkedposition = getAdapterPosition();
+                        //Toast.makeText(v.getContext(), "You're select :"+lba.get(checkedposition).getNama(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+            delete.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(v.getContext(), "You're select :"+lba.get(checkedposition).getNama(), Toast.LENGTH_SHORT).show();
                 }
             });
 
